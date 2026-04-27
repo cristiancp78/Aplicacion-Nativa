@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mis_productos_v"
+        android:title="@string/mis_productos_v"
+        android:icon="@drawable/ico_mis_productos"/>
+
+    <item
+        android:id="@+id/agregar_producto_v"
+        android:title="@string/agregar_producto_v"
+        android:icon="@drawable/ico_agregar_producto"
+    />
+
+    <item
+        android:id="@+id/mis_ordenes_v"
+        android:title="@string/mis_ordenes_v"
+        android:icon="@drawable/ico_mis_ordenes"/>
+</menu>

@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">TecnoTech</string>
+
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+
+    <string name="inicio_v">Inicio</string>
+    <string name="mi_tienda_v">Mi tienda</string>
+    <string name="cerrar_sesion_v">Cerrar sesión</string>
+
+    <string name="mis_productos_v">Mis productos</string>
+    <string name="agregar_producto_v">Agregar producto</string>
+    <string name="mis_ordenes_v">Ordenes</string>"
+
+    <string name="txt_bienvenido">Bienvenido(a)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Mi_Tienda">Mi Tienda</string>
+    <string name="Mis_productos">Mis Productos</string>
+    <string name="Ordenes">Ortdenes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
