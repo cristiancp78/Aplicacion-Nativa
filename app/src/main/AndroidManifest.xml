@@ -13,19 +13,25 @@
         android:theme="@style/Theme.TecnoTech">
         <activity
             android:name=".Vendedor.MainActivityVendedor"
-            android:exported="true" >
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.RegistroVendedorActivity"
+            android:exported="false" />
+
+        <!--Debe ir el manifest omo apertura inicial pero se pone el loggin debido a que no se ha
+        implementado base de datos-->
+        <activity
+            android:name=".Vendedor.LoginVendedorActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

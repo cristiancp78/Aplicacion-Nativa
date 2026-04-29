@@ -13,6 +13,23 @@
     <string name="mis_ordenes_v">Ordenes</string>"
 
     <string name="txt_bienvenido">Bienvenido(a)</string>
+
+
+    <!--Registro Vendedor -->
+    <string name="txtRegistroV">Registro de vendedor</string>
+    <string name="etNombresV">Nombre completos</string>
+    <string name="etEmailV">Email</string>
+    <string name="etPasswordV">Contraseña</string>
+    <string name="etConfirmarPasswordV">Confirmar contraseña</string>
+    <string name="btnRegistrarV">Registrar</string>"
+    <string name="cuenta">¿Ya tienes una cuenta?</string>
+    
+    <!--Login Vendedor -->
+    <string name="txtLoginV">Login de vendedor</string>"
+    <string name="btnLoginV">Ingresar</string>
+    <string name="noCuenta">¿No tienes una cuenta?</string>
+    <string name="tvRegistrarV">Registrarme</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="Mi_Tienda">Mi Tienda</string>
     <string name="Mis_productos">Mis Productos</string>

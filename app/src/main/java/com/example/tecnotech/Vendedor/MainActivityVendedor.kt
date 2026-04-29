@@ -1,6 +1,7 @@
 package com.example.tecnotech.Vendedor
 
 import android.app.Fragment
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.MenuItem
@@ -20,10 +21,12 @@ import com.example.tecnotech.Vendedor.Nav_Fragments_Vendedor.FragmentInicioV
 import com.example.tecnotech.Vendedor.Nav_Fragments_Vendedor.FragmentMiTiendaV
 import com.example.tecnotech.databinding.ActivityMainVendedorBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainVendedorBinding
+    private var firebaseAuth : FirebaseAuth?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,10 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        //conprobarSesion()
+
 
         binding.navigationView.setNavigationItemSelectedListener(this)
 
@@ -48,6 +55,19 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
         replaceFragment(FragmentInicioV())
         binding.navigationView.setCheckedItem(R.id.inicio_v)
     }
+
+    /*
+    private fun conprobarSesion() {
+        if (firebaseAuth!!.currentUser==null){
+            startActivity(Intent(applicationContext, LoginVendedorActivity::class.java))
+            Toast.makeText(applicationContext, "Vendedor no logeado", Toast.LENGTH_SHORT).show()
+
+        }
+        else{
+            Toast.makeText(applicationContext, "Vendedor en linea", Toast.LENGTH_SHORT).show()
+        }
+    }
+     */
 
     private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager
