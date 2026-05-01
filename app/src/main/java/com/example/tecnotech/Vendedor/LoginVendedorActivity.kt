@@ -3,6 +3,8 @@ package com.example.tecnotech.Vendedor
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tecnotech.Cliente.MainActivityCliente
+import com.example.tecnotech.Cliente.RegistroClienteActivity
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ActivityLoginVendedorBinding
 

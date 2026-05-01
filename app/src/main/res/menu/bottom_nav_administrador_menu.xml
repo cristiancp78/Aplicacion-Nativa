@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/panel_a"
+        android:title="@string/panel_a"
+        android:icon="@drawable/ico_panel"/>
+
+    <item
+        android:id="@+id/ordenes_a"
+        android:title="@string/ordenes_a"
+        android:icon="@drawable/ico_mis_ordenes"/>
+
+    <item
+        android:id="@+id/perfil_a"
+        android:title="@string/perfil_a"
+        android:icon="@drawable/ico_mi_perfil"/>
+</menu>

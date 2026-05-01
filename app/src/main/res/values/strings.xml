@@ -4,37 +4,100 @@
     <string name="open_drawer">Open drawer</string>
     <string name="close_drawer">Close drawer</string>
 
+    <!--Strings para el tipo de usuario-->
+    <string name="tipoVendedor">Vendedor</string>
+    <string name="tipoCliente">Cliente</string>
+    <string name="tipoAdministrador">Administrador</string>
+
+    <!--Menu lateral Vendedor -->
     <string name="inicio_v">Inicio</string>
     <string name="mi_tienda_v">Mi tienda</string>
     <string name="cerrar_sesion_v">Cerrar sesión</string>
 
+
+    <!--Menu lateral Cliente -->
+    <string name="inicio_c">Inicio</string>
+    <string name="mi_perfil_c">Mi perfil</string>
+    <string name="cerrar_sesion_c">Cerrar sesión</string>"
+
+    <!--Menu lateral Administrador -->
+    <string name="productos_a">Productos</string>
+    <string name="usuarios_a">Usuarios</string>
+    <string name="vendedores_a">Vendedores</string>
+    <string name="administradores_a">Administradores</string>
+    <string name="cerrar_sesion_A">Cerrar sesión</string>"
+
+    <!--Menu bottom Vendedor -->
     <string name="mis_productos_v">Mis productos</string>
     <string name="agregar_producto_v">Agregar producto</string>
     <string name="mis_ordenes_v">Ordenes</string>"
+
+    <!--Menu bottom Cliente -->
+    <string name="tienda_c">Tienda</string>
+    <string name="Ordenes_c">Mis Ordenes</string>
+
+    <!--Menu bottom Administrador -->
+    <string name="panel_a">Panel</string>
+    <string name="ordenes_a">Ordenes</string>
+    <string name="perfil_a">Perfil</string>
 
     <string name="txt_bienvenido">Bienvenido(a)</string>
 
 
     <!--Registro Vendedor -->
     <string name="txtRegistroV">Registro de vendedor</string>
-    <string name="etNombresV">Nombre completos</string>
-    <string name="etEmailV">Email</string>
-    <string name="etPasswordV">Contraseña</string>
-    <string name="etConfirmarPasswordV">Confirmar contraseña</string>
+    <string name="etNombresV">Nombres completos</string>
     <string name="btnRegistrarV">Registrar</string>"
+
+    <!--Strings globales en los registros, login y administrador-->
+    <string name="etEmail">Email</string>
+    <string name="etPassword">Contraseña</string>
+    <string name="etConfirmarPassword">Confirmar contraseña</string>
     <string name="cuenta">¿Ya tienes una cuenta?</string>
-    
+
+    <!--Registro Cliente -->
+    <string name="txtRegistroC">Registro de cliente</string>
+    <string name="etNombresC">Nombres completos</string>
+    <string name="btnRegistrarC">Registrarme</string>
+
+    <!--Registro Administrador -->
+    <string name="txtRegistroA">Registro de Administrador</string>
+    <string name="etNombresA">Nombres completos</string>
+    <string name="btnRegistrarA">Registrar</string>
+
     <!--Login Vendedor -->
     <string name="txtLoginV">Login de vendedor</string>"
     <string name="btnLoginV">Ingresar</string>
-    <string name="noCuenta">¿No tienes una cuenta?</string>
     <string name="tvRegistrarV">Registrarme</string>
+
+    <!--Strin global para login y registro-->
+    <string name="noCuenta">¿No tienes una cuenta?</string>
+
+    <!--Login Cliente -->
+    <string name="txtLoginC">Login de cliente</string>
+    <string name="btnLoginC">Ingresar</string>
+    <string name="tvRegistrarC">Registrarme</string>
+
+    <!--Login Administrador -->
+    <string name="txtLoginA">Login de administrador</string>
+    <string name="btnLoginA">Ingresar</string>
+
+    <!--Productos-->
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="Mi_Tienda">Mi Tienda</string>
     <string name="Mis_productos">Mis Productos</string>
-    <string name="Ordenes">Ortdenes</string>
+    <string name="Ordenes">Ordenes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="tienda">Tienda</string>
+    <string name="Usuarios">Usuarios</string>
+    <string name="Vendedores">Vendedores</string>
+    <string name="Administradores">Administradores</string>
+    <string name="Panel">Panel</string>
+    <string name="Perfil">Perfil</string>
+    <string name="Productos">Productos</string>
 
 </resources>

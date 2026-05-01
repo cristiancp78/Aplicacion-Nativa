@@ -3,4 +3,11 @@
     <string name="Mi_Tienda">Mi Tienda</string>
     <string name="Mis_productos">Mis Productos</string>
     <string name="Ordenes">Ortdenes</string>
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="tienda">Tienda</string>
+    <string name="Usuarios">Usuarios</string>
+    <string name="Administradores">Administradores</string>
+    <string name="Panel">Panel</string>
+    <string name="Perfil">Perfil</string>
+    <string name="Productos">Productos</string>
 </resources>

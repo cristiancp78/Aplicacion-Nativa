@@ -12,16 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TecnoTech">
         <activity
-            android:name=".Vendedor.MainActivityVendedor"
+            android:name=".Vendedor.Productos.AgregarProductoActivity"
             android:exported="false" />
         <activity
-            android:name=".Vendedor.RegistroVendedorActivity"
-            android:exported="false" />
-
-        <!--Debe ir el manifest omo apertura inicial pero se pone el loggin debido a que no se ha
-        implementado base de datos-->
-        <activity
-            android:name=".Vendedor.LoginVendedorActivity"
+            android:name=".SeleccionarTipoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +24,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Administrador.RegistroAdministradorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Administrador.LoginAdministradorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Administrador.MainActivityAdministrador"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.LoginClienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.RegistroClienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.MainActivityVendedor"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.RegistroVendedorActivity"
+            android:exported="false" />
+        <!--
+Debe ir el manifest omo apertura inicial pero se pone el loggin debido a que no se ha
+        implementado base de datos
+        -->
+        <activity
+            android:name=".Vendedor.LoginVendedorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.MainActivityCliente"
             android:exported="false" />
     </application>
 

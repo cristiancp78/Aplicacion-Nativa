@@ -6,8 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vendedor.RegistroVendedorActivity"
-    android:fitsSystemWindows="true">
+    tools:context=".Administrador.RegistroAdministradorActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -15,9 +14,9 @@
         android:orientation="vertical"
         android:padding="15dp"
         >
-        
+
         <TextView
-            android:text="@string/txtRegistroV"
+            android:text="@string/txtRegistroA"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_gravity="center"
@@ -28,23 +27,23 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/im_tienda"
+            android:src="@drawable/registroadmin"
             android:layout_width="80dp"
             android:layout_height="80dp"/>
-        
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            
+
             <EditText
-                android:id="@+id/etNombresV"
-                android:hint="@string/etNombresV"
+                android:id="@+id/etNombresA"
+                android:hint="@string/etNombresA"
                 android:drawableStart="@drawable/ico_nombres"
                 android:drawablePadding="6dp"
                 android:inputType="textPersonName|textCapWords"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -93,25 +92,15 @@
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-        
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegistrarV"
+            android:id="@+id/btnRegistrarA"
             android:layout_gravity="center"
             android:backgroundTint="@color/azul"
-            android:text="@string/btnRegistrarV"
+            android:text="@string/btnRegistrarA"
             app:cornerRadius="8dp"
             android:textAllCaps="true"
             android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/cuenta"
-            android:text="@string/cuenta"
-            android:textColor="@color/azulClaro"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
