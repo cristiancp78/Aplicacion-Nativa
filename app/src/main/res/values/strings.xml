@@ -11,6 +11,7 @@
 
     <!--Menu lateral Vendedor -->
     <string name="inicio_v">Inicio</string>
+    <string name="categoriasV">Categorias</string>
     <string name="mi_tienda_v">Mi tienda</string>
     <string name="cerrar_sesion_v">Cerrar sesión</string>
 
@@ -83,6 +84,32 @@
     <string name="btnLoginA">Ingresar</string>
 
     <!--Productos-->
+    <string name="txtAgregarProductos">Agregar productos</string>
+    <string name="etNombresP">Nombre del producto</string>
+    <string name="etDescripcionP">Descripción</string>
+    <string name="Categoria">Categoria</string>
+    <string name="etPrecioP">Precio</string>
+    <string name="txtDescuentoP">Descuento</string>
+    <string name="etPrecioConDescuentoP">Precio con descuento apli</string>
+    <string name="etNotaDescuentoP">Ej: 10% Descuento</string>
+    <string name="btnAgregarProducto">Agregar producto</string>
+
+    <!--Agregar Categorias-->
+    <string name="etCategoria">Ingrese Categoria</string>
+    <string name="btnAgregarCategoria">Agregar categoria</string>
+
+    <!--Item Producto - V-->
+    <string name="item_nombre_p">Nombre del producto</string>
+    <string name="item_precio_p">00</string>
+    <string name="item_descuento_p">00</string>
+
+    <!--Item Producto - C-->
+    <string name="item_agregar_carrito_p">Añadir al carrito</string>
+    <string name="etBuscarProducto">Buscar producto</string>
+
+    <!--Item Categoria - C-->
+    <string name="item_nombre_c_c">Nombre de categoria</string>
+    <string name="item_ver_productos">Ver productos</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -99,5 +126,6 @@
     <string name="Panel">Panel</string>
     <string name="Perfil">Perfil</string>
     <string name="Productos">Productos</string>
+    <string name="Inicio">Inicio</string>
 
 </resources>

@@ -12,7 +12,7 @@
 
     <include
         android:id="@+id/appBarMain"
-        layout="@layout/app_bar_main"
+        layout="@layout/app_bar_vendedores"
         />
 
     <com.google.android.material.navigation.NavigationView

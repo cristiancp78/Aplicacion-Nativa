@@ -17,6 +17,7 @@ import com.example.tecnotech.R
 import com.example.tecnotech.Vendedor.Bottom_Nav_Fragments_Vendedor.FragmentAgregarProductosV
 import com.example.tecnotech.Vendedor.Bottom_Nav_Fragments_Vendedor.FragmentMisProductosV
 import com.example.tecnotech.Vendedor.Bottom_Nav_Fragments_Vendedor.FragmentOrdenesV
+import com.example.tecnotech.Vendedor.Nav_Fragments_Vendedor.FragmentCategoriasV
 import com.example.tecnotech.Vendedor.Nav_Fragments_Vendedor.FragmentInicioV
 import com.example.tecnotech.Vendedor.Nav_Fragments_Vendedor.FragmentMiTiendaV
 import com.example.tecnotech.databinding.ActivityMainVendedorBinding
@@ -52,7 +53,23 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
         binding.drawerlayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        replaceFragment(FragmentInicioV())
+        binding.appBarMain.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.mis_productos_v -> {
+                    replaceFragment(FragmentMisProductosV())
+                }
+
+                R.id.agregar_producto_v -> {
+                    replaceFragment(FragmentAgregarProductosV())
+                }
+                R.id.mis_ordenes_v -> {
+                    replaceFragment(FragmentOrdenesV())
+                }
+            }
+            true
+        }
+
+        replaceFragment(FragmentMisProductosV())
         binding.navigationView.setCheckedItem(R.id.inicio_v)
     }
 
@@ -80,10 +97,13 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.inicio_v -> {
-                replaceFragment(FragmentInicioV())
+                replaceFragment(FragmentMisProductosV())
             }
             R.id.mi_tienda_v -> {
                 replaceFragment(FragmentMiTiendaV())
+            }
+            R.id.categoriasV -> {
+                replaceFragment(FragmentCategoriasV())
             }
             R.id.cerrar_sesion_v -> {
                 Toast.makeText(applicationContext, "Saliste de la aplicaicon", Toast.LENGTH_SHORT).show()

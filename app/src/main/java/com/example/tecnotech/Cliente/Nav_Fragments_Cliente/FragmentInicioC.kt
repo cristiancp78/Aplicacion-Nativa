@@ -18,8 +18,8 @@ class FragmentInicioC : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentInicioCBinding.inflate(inflater, container, false)
 
-        binding.bottomNavigation.setOnItemSelectedListener {
-            when(it.itemId){
+        binding.bottomNavigation.setOnItemSelectedListener {item ->
+            when(item.itemId){
                 R.id.tienda_c ->{
                     replaceFragment(FragmentTiendaC())
                 }

@@ -6,15 +6,14 @@ plugins {
 android {
     namespace = "com.example.tecnotech"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
+        version = release(34) {
         }
     }
 
     defaultConfig {
         applicationId = "com.example.tecnotech"
         minSdk = 30
-        targetSdk = 36
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -46,7 +45,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.firebaseAuth)
     implementation(libs.androidx.activity)
+    implementation(libs.imagePicker)
+    implementation(libs.glide)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.play.services.cast.framework)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

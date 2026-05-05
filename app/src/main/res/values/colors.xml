@@ -6,5 +6,8 @@
     <color name="gris_oscuro">#ABABAB</color>
     <color name="azul">#0898D1</color>
     <color name="azulClaro">#00B4F7</color>
+    <color name="plomo">#ccc</color>
+    <color name="celeste">#CEE3F1</color>
+    <color name="celesteClaro">#A2EAFF</color>
 
 </resources>

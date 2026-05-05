@@ -4,7 +4,8 @@
         <item name="android:statusBarColor">@color/gris_oscuro</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/gris_oscuro</item>
+        <item name="colorPrimary">@color/gris_oscuro</item>
+
     </style>
 
     <style name="Theme.TecnoTech" parent="Base.Theme.TecnoTech" />

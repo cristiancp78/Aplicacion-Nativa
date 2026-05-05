@@ -10,6 +10,9 @@ activity = "1.8.0"
 constraintlayout = "2.1.4"
 firebaseAuthV = "24.0.1"
 googleServiceV = "4.4.4"
+imagePickerV = "2.1"
+playServicesCastFramework = "22.3.1"
+glideV ="4.16.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -21,6 +24,9 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 firebaseAuth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuthV" }
+imagePicker = { group = "com.github.dhaval2404", name = "imagepicker", version.ref = "imagePickerV" }
+play-services-cast-framework = { group = "com.google.android.gms", name = "play-services-cast-framework", version.ref = "playServicesCastFramework" }
+glide={group="com.github.bumptech.glide", name="glide", version.ref="glideV"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
