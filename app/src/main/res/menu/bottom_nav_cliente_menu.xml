@@ -7,8 +7,18 @@
         android:icon="@drawable/ico_tienda"/>
 
     <item
+        android:id="@+id/favoritos_c"
+        android:title="@string/favoritos_c"
+        android:icon="@drawable/ico_favoritos"/>
+
+    <item
         android:id="@+id/Ordenes_c"
         android:title="@string/Ordenes_c"
         android:icon="@drawable/ico_mis_ordenes"/>
+
+    <item
+        android:id="@+id/Carrito_c"
+        android:title="@string/Carrito_c"
+        android:icon="@drawable/ico_carrito"/>
 
 </menu>

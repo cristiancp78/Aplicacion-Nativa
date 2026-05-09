@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Cliente.Bottom_Nav_Fragments_Cliente.FragmentCarrito"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imagenPCar"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/icocarrito"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/nombrePCar"
+            android:text="@string/nombrePCar"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imagenPCar"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/descripcionPCar"
+            android:layout_centerHorizontal="true"
+            android:text="@string/descripcionPCar"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/nombrePCar"
+            android:layout_marginTop="5dp"
+            tools:text="@tools:sample/lorem[15]"
+            android:padding="10dp"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:id="@+id/precioOriginalPCar"
+            android:text="@string/precioOriginalPCar"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+        <TextView
+            android:id="@+id/precioFinalPCar"
+            android:text="@string/precioFinalPCar"
+            android:padding="10dp"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="textStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <ImageButton
+            android:id="@+id/btnDisminuir"
+            android:src="@drawable/ico_disminuir"
+            android:background="@null"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/canrtidadPCar"
+            android:text="@string/canrtidadPCar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"/>
+
+        <ImageButton
+            android:id="@+id/btnAumentar"
+            android:src="@drawable/ico_incrementar"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAgregarCarrito"
+        android:text="@string/btnAgregarCarrito"
+        android:backgroundTint="@color/azul"
+        android:padding="5dp"
+        app:cornerRadius="0dp"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

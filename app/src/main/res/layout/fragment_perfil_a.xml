@@ -1,17 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Administrador.Bottom_Nav_Fragments_Administrador.FragmentPerfilA">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/Perfil"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-</FrameLayout>
+        <!-- Foto de Perfil -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPerfil"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icofotousuario"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+            app:strokeColor="@color/azul"
+            app:strokeWidth="3dp" />
+
+        <TextView
+            android:id="@+id/tvNombrePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/tvNombrePerfil"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvRolPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvRolPerfil"
+            android:textColor="@color/azul"
+            android:textSize="16sp" />
+
+        <!-- Sección de Información -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tvCorreoPerfil"
+                    android:textSize="12sp"
+                    android:textColor="@color/gris_oscuro" />
+
+                <TextView
+                    android:id="@+id/tvEmailPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/tvEmailPerfil"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botón Cerrar Sesión -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCerrarSesion"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/cerrar_sesion_A"
+            android:textColor="@color/Rojo" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

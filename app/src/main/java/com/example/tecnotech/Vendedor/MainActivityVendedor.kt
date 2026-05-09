@@ -99,9 +99,7 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
             R.id.inicio_v -> {
                 replaceFragment(FragmentMisProductosV())
             }
-            R.id.mi_tienda_v -> {
-                replaceFragment(FragmentMiTiendaV())
-            }
+
             R.id.categoriasV -> {
                 replaceFragment(FragmentCategoriasV())
             }

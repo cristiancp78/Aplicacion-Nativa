@@ -63,12 +63,6 @@ class MainActivityCliente : AppCompatActivity(), NavigationView.OnNavigationItem
             R.id.cerrar_sesion_c -> {
                 Toast.makeText(applicationContext, "Has cerrado sesión", Toast.LENGTH_SHORT).show()
             }
-            R.id.tienda_c -> {
-                replaceFragment(FragmentTiendaC())
-            }
-            R.id.Ordenes_c -> {
-                replaceFragment(FragmentMisOrdenesC())
-            }
         }
         binding.drawerLayout.closeDrawers()
         return true

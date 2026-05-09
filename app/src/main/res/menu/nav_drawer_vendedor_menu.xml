@@ -19,10 +19,12 @@
             android:icon="@drawable/ico_categorias"
             />
 
+        <!--
         <item
             android:id="@+id/mi_tienda_v"
             android:title="@string/mi_tienda_v"
             android:icon="@drawable/ico_mi_tienda"/>
+            -->
 
     </group>
 

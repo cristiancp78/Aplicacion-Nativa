@@ -6,6 +6,7 @@ class ModeloProductoC (
     var precio: String = "",
     var imagen: Int,
     var categoria: String = "",
+    var favoritos: Boolean = false
 ){
 
 }

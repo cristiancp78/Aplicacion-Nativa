@@ -9,6 +9,14 @@
     android:orientation="vertical"
     tools:context=".Cliente.ProductosC.ProductosCatCActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/gris_oscuro"
+        app:titleTextColor="@color/white"
+        app:navigationIconTint="@color/white" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,5 +64,6 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
         tools:listitem="@layout/item_producto_c"/>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -9,6 +9,9 @@
     <string name="tipoCliente">Cliente</string>
     <string name="tipoAdministrador">Administrador</string>
 
+    <!--Menu Administradores-->
+    <string name="btnAgregarA">Agregar</string>
+
     <!--Menu lateral Vendedor -->
     <string name="inicio_v">Inicio</string>
     <string name="categoriasV">Categorias</string>
@@ -35,7 +38,9 @@
 
     <!--Menu bottom Cliente -->
     <string name="tienda_c">Tienda</string>
+    <string name="favoritos_c">Favoritos</string>
     <string name="Ordenes_c">Mis Ordenes</string>
+    <string name="Carrito_c">Carrito</string>"
 
     <!--Menu bottom Administrador -->
     <string name="panel_a">Panel</string>
@@ -48,6 +53,7 @@
     <!--Registro Vendedor -->
     <string name="txtRegistroV">Registro de vendedor</string>
     <string name="etNombresV">Nombres completos</string>
+    <string name="etNombreTienda">Nombre de la tienda</string>
     <string name="btnRegistrarV">Registrar</string>"
 
     <!--Strings globales en los registros, login y administrador-->
@@ -59,6 +65,7 @@
     <!--Registro Cliente -->
     <string name="txtRegistroC">Registro de cliente</string>
     <string name="etNombresC">Nombres completos</string>
+    <string name="etDireccion">Direccion de envio</string>
     <string name="btnRegistrarC">Registrarme</string>
 
     <!--Registro Administrador -->
@@ -94,6 +101,23 @@
     <string name="etNotaDescuentoP">Ej: 10% Descuento</string>
     <string name="btnAgregarProducto">Agregar producto</string>
 
+    <!--Editar Producto-->
+    <string name="txtEditarProducto">Editar producto</string>
+    <string name="btnEditarProducto">Editar producto</string>
+
+    <!--Editar Administradores-->
+    <string name="btnEditarAdministrador">Editar administrador</string>
+
+    <!--Editar Clientes-->
+    <string name="txEditarCliente">Editar cliente</string>
+    <string name="btnRestablecerContraseña">Restablecer Contraseña</string>
+    <string name="btnEditarCliente">Editar cliente</string>
+
+    <!--Editar Vendedores-->
+    <string name="txtEditarVendedor">Editar vendedor</string>
+    <string name="btnEditarVendedor">Editar vendedor</string>
+
+
     <!--Agregar Categorias-->
     <string name="etCategoria">Ingrese Categoria</string>
     <string name="btnAgregarCategoria">Agregar categoria</string>
@@ -107,9 +131,63 @@
     <string name="item_agregar_carrito_p">Añadir al carrito</string>
     <string name="etBuscarProducto">Buscar producto</string>
 
+    <!--Item Usuarios - A -->
+    <string name="item_nombre_usuario_a">Nombre de usuario</string>
+    <string name="item_correo_a">Correo electronico</string>
+
+    <!--Item Vendedores - A -->
+    <string name="item_nombre_usuario_v">Nombre de usuario</string>
+    <string name="item_correo_v">Correo electronico</string>
+    <string name="item_nombre_tienda_v">Nombre de la tienda</string>
+
+    <!--Item Administrador-->
+    <string name="item_nombre_admin">Nombre de administrador</string>
+    <string name="item_correo_admin">Correo electronico</string>
+
+
     <!--Item Categoria - C-->
     <string name="item_nombre_c_c">Nombre de categoria</string>
     <string name="item_ver_productos">Ver productos</string>
+
+    <!--Detalle del producto-->
+    <string name="nombrePD">Nombre del producto</string>
+    <string name="descripcionPD">Descripcion</string>
+    <string name="precioPD">Precio</string>
+
+    <!--Perfil Administrador-->
+    <string name="tvNombrePerfil">Nombre Administrador</string>
+    <string name="tvRolPerfil">Administrador</string>
+    <string name="tvCorreoPerfil">Correo Electronico</string>
+    <string name="tvEmailPerfil">admin@tecnotech.com</string>
+    <string name="tvTelefonoPerfil">+57 300 000 0000</string>
+
+    <!--Panel Administrador-->
+    <string name="tvPanel">Panel</string>
+    <string name="tvUsuariosPanel">Usuarios</string>
+    <string name="tvVendedoresPanel">Vendedores</string>
+    <string name="tvAdministradoresPanel">Administradores</string>
+    <string name="tvProductosPanel">Productos</string>
+    <string name="tvOrdenesPanel">Ordenes Realizadas</string>
+    <string name="tvNumeroOrden">Orden Numero:</string>
+    <string name="tvValorOrden">54884324788</string>
+    <string name="tvEstado">Estado:</string>
+    <string name="tvEstadoActual">Entregado</string>
+    <string name="tvValor">Valor:</string>
+    <string name="tvValorProducto">2.500.000</string>
+
+    <!--Mis Ordenes Cliente-->
+    <string name="txMisOrdenes">Mis Ordenes</string>
+
+
+    <!--Carrito de compras-->
+    <string name="nombrePCar">Nombre del producto</string>
+    <string name="descripcionPCar">Descripcion</string>
+    <string name="precioOriginalPCar">00</string>
+    <string name="canrtidadPCar">1</string>
+    <string name="precioFinalPCar">00</string>"
+    <string name="btnAgregarCarrito">Agregar al carrito</string>
+    <string name="tvTotalPagar">Total a pagar:</string>
+    <string name="tvValorTotal">$ 0.00</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -127,5 +205,6 @@
     <string name="Perfil">Perfil</string>
     <string name="Productos">Productos</string>
     <string name="Inicio">Inicio</string>
+    <string name="btnConfirmarOrden">Confirmar Orden</string>
 
 </resources>

@@ -49,7 +49,7 @@ class MainActivityAdministrador : AppCompatActivity(), NavigationView.OnNavigati
                     replaceFragment(FragmentPanelA())
                 }
                 R.id.ordenes_a ->{
-                    replaceFragment(FragmentOrdenesA())
+                    Toast.makeText(applicationContext, "Ordenes", Toast.LENGTH_SHORT).show()
                 }
                 R.id.perfil_a ->{
                     replaceFragment(FragmentPerfilA())
@@ -61,7 +61,7 @@ class MainActivityAdministrador : AppCompatActivity(), NavigationView.OnNavigati
         replaceFragment(FragmentPanelA())
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.navFragment, fragment)
             .commit()

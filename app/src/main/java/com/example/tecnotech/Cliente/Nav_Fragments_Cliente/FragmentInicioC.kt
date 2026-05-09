@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.tecnotech.Cliente.Bottom_Nav_Fragments_Cliente.FragmentCarrito
+import com.example.tecnotech.Cliente.Bottom_Nav_Fragments_Cliente.FragmentFavoritosC
 import com.example.tecnotech.Cliente.Bottom_Nav_Fragments_Cliente.FragmentMisOrdenesC
 import com.example.tecnotech.Cliente.Bottom_Nav_Fragments_Cliente.FragmentTiendaC
 import com.example.tecnotech.R
@@ -25,6 +27,12 @@ class FragmentInicioC : Fragment() {
                 }
                 R.id.Ordenes_c ->{
                     replaceFragment(FragmentMisOrdenesC())
+                }
+                R.id.favoritos_c ->{
+                    replaceFragment(FragmentFavoritosC())
+                }
+                R.id.Carrito_c ->{
+                    replaceFragment(FragmentCarrito())
                 }
             }
             true

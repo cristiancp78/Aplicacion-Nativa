@@ -6,10 +6,10 @@
         android:title="@string/panel_a"
         android:icon="@drawable/ico_panel"/>
 
+
     <item
         android:id="@+id/ordenes_a"
-        android:title="@string/ordenes_a"
-        android:icon="@drawable/ico_mis_ordenes"/>
+        android:title=""/>
 
     <item
         android:id="@+id/perfil_a"

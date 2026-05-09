@@ -9,5 +9,7 @@
     <color name="plomo">#ccc</color>
     <color name="celeste">#CEE3F1</color>
     <color name="celesteClaro">#A2EAFF</color>
+    <color name="Celeste_fondo">#E3F2FD</color>
+    <color name="Rojo">#F44336</color>
 
 </resources>

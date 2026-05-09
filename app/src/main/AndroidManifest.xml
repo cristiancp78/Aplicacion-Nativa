@@ -23,6 +23,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TecnoTech">
         <activity
+            android:name=".Administrador.Administrar.ActivityEditarVendedores"
+            android:exported="false" />
+        <activity
+            android:name=".Administrador.Administrar.ActivityEditarAdministradores"
+            android:exported="false" />
+        <activity
+            android:name=".Administrador.Administrar.ActivityEditarProductoAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".Administrador.Administrar.ActivityEditarUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Productos.EditarProductoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalleProducto.DetalleProductoActivity"
+            android:exported="false" />
+        <activity
             android:name=".Cliente.ProductosC.ProductosCatCActivity"
             android:exported="false" />
         <activity

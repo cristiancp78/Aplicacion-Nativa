@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:src="@drawable/icofotoadministrador"
+            android:id="@+id/imagenU"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/item_nombre_admin"
+            android:text="@string/item_nombre_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/item_correo_admin"
+            android:text="@string/item_correo_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginTop="7dp"
+            android:maxLines="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageButton
+                android:id="@+id/btnEditarAdministrador"
+                android:src="@drawable/ico_edit"
+                android:background="@android:color/transparent"
+                android:layout_marginRight="15dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:padding="5dp"
+                android:scaleType="fitCenter"/>
+            <ImageButton
+                android:id="@+id/btnEliminarAdministrador"
+                android:layout_marginLeft="15dp"
+                android:padding="5dp"
+                android:src="@drawable/ico_eliminar"
+                android:background="@android:color/transparent"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitCenter"/>
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetalleProducto.DetalleProductoActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/gris_oscuro"
+        app:titleTextColor="@color/white"
+        app:navigationIconTint="@color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imagenVP"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+            
+            <TextView
+                android:id="@+id/nombrePD"
+                android:text="@string/nombrePD"
+                android:layout_below="@+id/imagenVP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/descripcionPD"
+                android:text="@string/descripcionPD"
+                android:layout_below="@id/nombrePD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/precioPD"
+                android:text="@string/precioPD"
+                android:layout_below="@+id/descripcionPD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/azulClaro"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/item_agregar_carrito_p"
+                android:text="@string/item_agregar_carrito_p"
+                app:cornerRadius="8dp"
+                android:layout_below="@id/precioPD"
+                android:textAllCaps="true"
+                android:backgroundTint="@color/azul"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,11 +1,15 @@
 package com.example.tecnotech.Cliente.ProductosC
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tecnotech.Adaptadores.AdaptadorProductoC
+import com.example.tecnotech.Cliente.Bottom_Nav_Fragments_Cliente.FragmentFavoritosC
+import com.example.tecnotech.Cliente.Bottom_Nav_Fragments_Cliente.FragmentTiendaC
+import com.example.tecnotech.Cliente.MainActivityCliente
 import com.example.tecnotech.Modelos.ModeloProductoC
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ActivityProductosCatCactivityBinding
@@ -23,7 +27,10 @@ class ProductosCatCActivity : AppCompatActivity() {
 
         val categoriaRecibida = intent.getStringExtra("categoria")
 
+        setSupportActionBar(binding.toolbar)
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.app_name)
 
         listarProductos(categoriaRecibida)
 
@@ -55,6 +62,7 @@ class ProductosCatCActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun listarProductos(categoriaRecibida: String?) {
         productosArrayList = ArrayList()

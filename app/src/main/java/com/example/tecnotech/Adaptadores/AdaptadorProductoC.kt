@@ -1,13 +1,16 @@
 package com.example.tecnotech.Adaptadores
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tecnotech.DetalleProducto.DetalleProductoActivity
 import com.example.tecnotech.Filtro.FiltroProducto
 import com.example.tecnotech.Modelos.ModeloProductoC
+import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ItemProductoCBinding
 
 class AdaptadorProductoC(
@@ -30,6 +33,22 @@ class AdaptadorProductoC(
         holder.binding.itemNombreP.text = modelo.nombre
         holder.binding.itemPrecioP.text = modelo.precio
         holder.binding.imagenP.setImageResource(modelo.imagen)
+
+        if (modelo.favoritos){
+            holder.binding.IBFav.setImageResource(R.drawable.ico_favoritosselect)
+        }
+        else{
+            holder.binding.IBFav.setImageResource(R.drawable.ico_no_favorito)
+        }
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, DetalleProductoActivity::class.java)
+            intent.putExtra("id", modelo.id)
+            intent.putExtra("nombre", modelo.nombre)
+            intent.putExtra("precio", modelo.precio)
+            intent.putExtra("imagen", modelo.imagen)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = productosArrayList.size

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Cliente.Bottom_Nav_Fragments_Cliente.FragmentFavoritosC">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favoritosRv"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/item_producto_c"
+        app:spanCount="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</FrameLayout>
