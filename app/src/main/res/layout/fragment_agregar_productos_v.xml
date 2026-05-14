@@ -44,10 +44,11 @@
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_below="@+id/RLimagen"
-        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLimagen"
+        android:layout_marginTop="1dp"
+        android:padding="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,102 +56,101 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/RV_imagenesProducto"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                tools:listitem="@layout/item_imagenes_seleccionadas"
-                app:spanCount="4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="4"
+                tools:listitem="@layout/item_imagenes_seleccionadas" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TIL_NombresP"
-                android:layout_below="@+id/RV_imagenesProducto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/RV_imagenesProducto">
 
                 <EditText
                     android:id="@+id/etNombreP"
-                    android:hint="@string/etNombresP"
-                    android:inputType="textCapSentences"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:hint="@string/etNombresP"
+                    android:inputType="textCapSentences" />
             </com.google.android.material.textfield.TextInputLayout>
-
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TIL_DescripcionP"
-                android:layout_below="@+id/TIL_NombresP"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TIL_NombresP">
 
                 <EditText
                     android:id="@+id/etDescripcionP"
-                    android:hint="@string/etDescripcionP"
-                    android:inputType="textCapSentences"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:hint="@string/etDescripcionP"
+                    android:inputType="textCapSentences" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/Categoria"
-                android:text="@string/Categoria"
-                android:padding="15dp"
-                android:textSize="17sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TIL_DescripcionP"
                 android:layout_marginTop="5dp"
                 android:gravity="center_vertical"
-                app:drawableEndCompat="@drawable/ico_abajo"
-                android:layout_below="@id/TIL_DescripcionP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:padding="15dp"
+                android:hint="@string/Categoria"
+                android:textSize="17sp"
+                app:drawableEndCompat="@drawable/ico_abajo" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TIL_Precio"
-                android:layout_below="@+id/Categoria"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Categoria">
 
                 <EditText
                     android:id="@+id/etPrecioP"
-                    android:hint="@string/etPrecioP"
-                    android:inputType="numberDecimal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:hint="@string/etPrecioP"
+                    android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/descuentoSwitch"
-                android:text="@string/txtDescuentoP"
-                android:layout_below="@+id/TIL_Precio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:layout_below="@+id/TIL_Precio"
+                android:layout_margin="5dp"
+                android:text="@string/txtDescuentoP" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TIL_PrecioDes"
-                android:layout_below="@+id/descuentoSwitch"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descuentoSwitch">
 
                 <EditText
                     android:id="@+id/etPrecioConDescuentoP"
-                    android:hint="@string/etPrecioConDescuentoP"
-                    android:inputType="numberDecimal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:hint="@string/etPrecioConDescuentoP"
+                    android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TIL_NotaDesc"
-                android:layout_below="@+id/TIL_PrecioDes"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TIL_PrecioDes">
 
                 <EditText
                     android:id="@+id/etNotaDescuentoP"
-                    android:hint="@string/etNotaDescuentoP"
-                    android:inputType="textCapSentences"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:hint="@string/etNotaDescuentoP"
+                    android:inputType="textCapSentences" />
             </com.google.android.material.textfield.TextInputLayout>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

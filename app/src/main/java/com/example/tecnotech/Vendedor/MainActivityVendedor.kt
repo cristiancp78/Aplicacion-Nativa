@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tecnotech.R
+import com.example.tecnotech.SeleccionarTipoActivity
 import com.example.tecnotech.Vendedor.Bottom_Nav_Fragments_Vendedor.FragmentAgregarProductosV
 import com.example.tecnotech.Vendedor.Bottom_Nav_Fragments_Vendedor.FragmentMisProductosV
 import com.example.tecnotech.Vendedor.Bottom_Nav_Fragments_Vendedor.FragmentOrdenesV
@@ -38,7 +39,7 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
         setSupportActionBar(toolbar)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        //conprobarSesion()
+        conprobarSesion()
 
 
         binding.navigationView.setNavigationItemSelectedListener(this)
@@ -73,18 +74,22 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
         binding.navigationView.setCheckedItem(R.id.inicio_v)
     }
 
-    /*
+    private fun cerrarSesion(){
+        firebaseAuth!!.signOut()
+        startActivity(Intent(applicationContext, SeleccionarTipoActivity::class.java))
+        finish()
+        Toast.makeText(applicationContext, "Saliste de la aplicaicon", Toast.LENGTH_SHORT).show()
+    }
+
+
     private fun conprobarSesion() {
         if (firebaseAuth!!.currentUser==null){
-            startActivity(Intent(applicationContext, LoginVendedorActivity::class.java))
-            Toast.makeText(applicationContext, "Vendedor no logeado", Toast.LENGTH_SHORT).show()
-
-        }
-        else{
-            Toast.makeText(applicationContext, "Vendedor en linea", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(applicationContext, SeleccionarTipoActivity::class.java))
+            finish()
+            Toast.makeText(applicationContext, " no logeado", Toast.LENGTH_SHORT).show()
         }
     }
-     */
+
 
     private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager
@@ -104,7 +109,7 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
                 replaceFragment(FragmentCategoriasV())
             }
             R.id.cerrar_sesion_v -> {
-                Toast.makeText(applicationContext, "Saliste de la aplicaicon", Toast.LENGTH_SHORT).show()
+                cerrarSesion()
             }
             R.id.mis_productos_v -> {
                 replaceFragment(FragmentMisProductosV())

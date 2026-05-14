@@ -44,6 +44,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.firebaseAuth)
+    implementation(libs.firebaseDatabase)
+    implementation(libs.storage)
     implementation(libs.androidx.activity)
     implementation(libs.imagePicker)
     implementation(libs.glide)
