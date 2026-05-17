@@ -1,5 +1,6 @@
 package com.example.tecnotech.Administrador.Nav_Fragments_Administrador
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,31 +10,56 @@ import com.example.tecnotech.Adaptadores.AdaptadorUsuariosA
 import com.example.tecnotech.Modelos.ModeloUsuarios
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.FragmentUsuariosABinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class FragmentUsuariosA : Fragment() {
 
 
     private lateinit var binding: FragmentUsuariosABinding
+
+    private lateinit var mContexto: Context
     private lateinit var usuariosArrayList: ArrayList<ModeloUsuarios>
     private lateinit var adaptadorUsuariosA: AdaptadorUsuariosA
 
+    override fun onAttach(context: Context) {
+        mContexto = context
+        super.onAttach(context)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentUsuariosABinding.inflate(inflater, container, false)
+        binding = FragmentUsuariosABinding.inflate(LayoutInflater.from(mContexto), container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         listarUsuarios()
-        return binding.root
     }
 
     private fun listarUsuarios() {
         usuariosArrayList = ArrayList()
-        usuariosArrayList.add(ModeloUsuarios("1","Alejandro Martinez","alejandro@gmail.com","Carrera 56a #45-83","cliente", R.drawable.icofotousuario))
-        usuariosArrayList.add(ModeloUsuarios("2","Juan Perez","juan@gmail.com","Carrera 47a #12-84","cliente", R.drawable.icofotousuario))
-        usuariosArrayList.add(ModeloUsuarios("3","Maria Lopez","maria@gmail.com","Carrera 24 #24-56","cliente", R.drawable.icofotousuario))
-        usuariosArrayList.add(ModeloUsuarios("4","Carlos Ramirez","carlos@gmail.com","Carrera 112 #55-23","cliente", R.drawable.icofotousuario))
 
-        adaptadorUsuariosA = AdaptadorUsuariosA(requireContext(), usuariosArrayList)
-        binding.usuariosRv.adapter = adaptadorUsuariosA
+        val ref = FirebaseDatabase.getInstance().getReference("Clientes")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                usuariosArrayList.clear()
+                for (ds in snapshot.children) {
+                    val modeloUsuario = ds.getValue(ModeloUsuarios::class.java)
+                    usuariosArrayList.add(modeloUsuario!!)
+                }
+                adaptadorUsuariosA = AdaptadorUsuariosA(mContexto, usuariosArrayList)
+                binding.usuariosRv.adapter = adaptadorUsuariosA
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
 

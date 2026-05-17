@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "392003132711",
+    "firebase_url": "https://tienda-tecnotech-default-rtdb.firebaseio.com",
     "project_id": "tienda-tecnotech",
     "storage_bucket": "tienda-tecnotech.firebasestorage.app"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.tecnotech"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "392003132711-5gk6le1sqnd177pmuq1f6hli2hekd6ic.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tecnotech",
+            "certificate_hash": "7734c5a30e0eeb50f6fc67eeab68a92647cd1fa1"
+          }
+        },
+        {
+          "client_id": "392003132711-j7gino4og58ul8qj6a4e231kfjlqdpv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCUvH7HxBk7QH-L_ISgWu2ant3D1hUwMvk"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392003132711-9fa6n9sg20qqt4pta6l1l7uauabd2mb6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

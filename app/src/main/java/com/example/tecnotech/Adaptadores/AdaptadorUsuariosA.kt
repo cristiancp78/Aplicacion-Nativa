@@ -3,6 +3,7 @@ package com.example.tecnotech.Adaptadores
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -10,37 +11,43 @@ import com.example.tecnotech.Administrador.Administrar.ActivityEditarUsuario
 import com.example.tecnotech.Modelos.ModeloUsuarios
 import com.example.tecnotech.databinding.ItemUsuariosABinding
 
-class AdaptadorUsuariosA (
-    private val context: Context,
+class AdaptadorUsuariosA : RecyclerView.Adapter<AdaptadorUsuariosA.HolderUsuariosA>{
+
+    private lateinit var binding: ItemUsuariosABinding
+    private val context: Context
     private val usuariosArrayList: ArrayList<ModeloUsuarios>
-): RecyclerView.Adapter<AdaptadorUsuariosA.HolderUsuariosA>() {
 
-    inner class HolderUsuariosA(val binding: ItemUsuariosABinding): RecyclerView.ViewHolder(binding.root)
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdaptadorUsuariosA.HolderUsuariosA {
-        val binding = ItemUsuariosABinding.inflate(LayoutInflater.from(context), parent, false)
-        return HolderUsuariosA(binding)
+    constructor(context: Context, usuariosArrayList: ArrayList<ModeloUsuarios>) : super() {
+        this.context = context
+        this.usuariosArrayList = usuariosArrayList
     }
 
-    override fun onBindViewHolder(holder: AdaptadorUsuariosA.HolderUsuariosA, position: Int) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderUsuariosA {
+        binding = ItemUsuariosABinding.inflate(LayoutInflater.from(context), parent, false)
+        return HolderUsuariosA(binding.root)
+    }
+
+    override fun onBindViewHolder(holder: HolderUsuariosA, position: Int) {
         val modelo = usuariosArrayList[position]
-        holder.binding.itemNombreUsuarioA.text = modelo.nombre
-        holder.binding.itemCorreoA.text = modelo.correo
-        holder.binding.imagenU.setImageResource(modelo.imagen)
 
-        holder.binding.btnEditarUsuario.setOnClickListener {
-            val intent = Intent(context, ActivityEditarUsuario::class.java)
-            intent.putExtra("nombre", modelo.nombre)
-            intent.putExtra("correo", modelo.correo)
-            intent.putExtra("direccion", modelo.direccion)
+        val nombre = modelo.nombres
+        val correo = modelo.correo
 
 
-            context.startActivity(intent)
-        }
+        holder.item_nombre_usuario_a.text = "${nombre}"
+        holder.item_correo_a.text = "${correo}"
 
-        holder.binding.btnEliminarUsuario.setOnClickListener {
-            Toast.makeText(context, "Usuario eliminado", Toast.LENGTH_SHORT).show()
-        }
     }
 
-    override fun getItemCount(): Int = usuariosArrayList.size
+    override fun getItemCount(): Int {
+        return usuariosArrayList.size
+    }
+
+
+    inner class HolderUsuariosA(itemView: View): RecyclerView.ViewHolder(itemView){
+        var imagenU = binding.imagenU
+        var item_nombre_usuario_a = binding.itemNombreUsuarioA
+        var item_correo_a = binding.itemCorreoA
+    }
+
 }

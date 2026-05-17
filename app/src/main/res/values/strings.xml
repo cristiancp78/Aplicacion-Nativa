@@ -4,6 +4,8 @@
     <string name="open_drawer">Open drawer</string>
     <string name="close_drawer">Close drawer</string>
 
+    <string name="default_web_client_id">392003132711-j7gino4og58ul8qj6a4e231kfjlqdpv7.apps.googleusercontent.com</string>
+
     <!--Strings para el tipo de usuario-->
     <string name="tipoVendedor">Vendedor</string>
     <string name="tipoCliente">Cliente</string>
@@ -124,6 +126,7 @@
 
     <!--Item Producto - V-->
     <string name="item_nombre_p">Nombre del producto</string>
+    <string name="item_nota_p">50% OFF</string>
     <string name="item_precio_p">00</string>
     <string name="item_descuento_p">00</string>
 

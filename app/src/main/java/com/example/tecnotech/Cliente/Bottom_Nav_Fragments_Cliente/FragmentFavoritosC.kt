@@ -26,15 +26,6 @@ class FragmentFavoritosC : Fragment() {
 
     private fun listarFavoritos() {
         favoritosArrayList = ArrayList()
-
-        favoritosArrayList.add(ModeloProductoC("1", "Smartphone Samsung", "3.500.000", R.drawable.icoproduc, "Celulares", true))
-        favoritosArrayList.add(ModeloProductoC("2", "Audífonos Sony", "1.200.000", R.drawable.icoproduc, "Audio", true))
-        favoritosArrayList.add(ModeloProductoC("3", "Reloj Inteligente", "850.000", R.drawable.icoproduc, "Accesorios", true))
-        favoritosArrayList.add(ModeloProductoC("4", "Cargador Carga Rápida", "95.000", R.drawable.icoproduc, "Accesorios", true))
-
-        adaptadorProductoC = AdaptadorProductoC(requireContext(), favoritosArrayList)
-
-        binding.favoritosRv.adapter = adaptadorProductoC
     }
 
 }

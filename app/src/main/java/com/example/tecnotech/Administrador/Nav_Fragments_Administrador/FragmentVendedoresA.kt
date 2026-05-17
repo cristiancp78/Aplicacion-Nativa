@@ -1,5 +1,6 @@
 package com.example.tecnotech.Administrador.Nav_Fragments_Administrador
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,32 +11,56 @@ import com.example.tecnotech.Modelos.ModeloUsuarios
 import com.example.tecnotech.Modelos.ModeloVendedores
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.FragmentVendedoresABinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class FragmentVendedoresA : Fragment() {
 
     private lateinit var binding: FragmentVendedoresABinding
+
+    private lateinit var mContexto: Context
     private lateinit var adapter: AdaptadorVendedoresA
     private lateinit var vendedoresArrayList: ArrayList<ModeloVendedores>
 
 
+    override fun onAttach(context: Context) {
+        mContexto = context
+        super.onAttach(context)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentVendedoresABinding.inflate(inflater, container, false)
-        listarVendedores()
-
+        binding = FragmentVendedoresABinding.inflate(LayoutInflater.from(mContexto), container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        listarVendedores()
     }
 
     private fun listarVendedores() {
         vendedoresArrayList = ArrayList()
-        vendedoresArrayList.add(ModeloVendedores("1","Camilo Lopez","camilo@gmail.com","TecnoStore", R.drawable.icofotovendedor))
-        vendedoresArrayList.add(ModeloVendedores("2","Julian Cardenas","julian@gmail.com","MobilCompac", R.drawable.icofotovendedor))
-        vendedoresArrayList.add(ModeloVendedores("3","Sebastian Martinez","sebastian@gmail.com","perifericStore", R.drawable.icofotovendedor))
-        vendedoresArrayList.add(ModeloVendedores("4","Andres Flores","andres@gmail.com","CumpoGaming", R.drawable.icofotovendedor))
 
-        adapter = AdaptadorVendedoresA(requireContext(), vendedoresArrayList)
-        binding.vendedoresRv.adapter = adapter
+        val ref = FirebaseDatabase.getInstance().getReference("Vendedores")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                vendedoresArrayList.clear()
+                for (ds in snapshot.children) {
+                    val modeloVendedor = ds.getValue(ModeloVendedores::class.java)
+                    vendedoresArrayList.add(modeloVendedor!!)
+                }
+                adapter = AdaptadorVendedoresA(mContexto, vendedoresArrayList)
+                binding.vendedoresRv.adapter = adapter
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
 

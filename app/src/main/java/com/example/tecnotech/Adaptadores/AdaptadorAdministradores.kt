@@ -3,48 +3,52 @@ package com.example.tecnotech.Adaptadores
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tecnotech.Administrador.Administrar.ActivityEditarAdministradores
+import com.example.tecnotech.Modelos.ModeloAdministradores
 import com.example.tecnotech.Modelos.ModeloUsuarios
 import com.example.tecnotech.databinding.ItemAdministradoresBinding
 
-class AdaptadorAdministradores(
-    private val context: Context,
-    private val listaAdministradores: ArrayList<ModeloUsuarios>
-): RecyclerView.Adapter<AdaptadorAdministradores.HolderAdministradores>() {
+class AdaptadorAdministradores : RecyclerView.Adapter<AdaptadorAdministradores.HolderAdministradores>{
 
-    inner class HolderAdministradores(val binding: ItemAdministradoresBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    private lateinit var binding: ItemAdministradoresBinding
+    private val context: Context
+    private val listaAdministradores: ArrayList<ModeloAdministradores>
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdaptadorAdministradores.HolderAdministradores {
-        val binding =
-            ItemAdministradoresBinding.inflate(LayoutInflater.from(context), parent, false)
-        return HolderAdministradores(binding)
+    constructor(context: Context, listaAdministradores: ArrayList<ModeloAdministradores>) : super() {
+        this.context = context
+        this.listaAdministradores = listaAdministradores
     }
 
-    override fun onBindViewHolder(holder: AdaptadorAdministradores.HolderAdministradores, p1: Int) {
-        val modelo = listaAdministradores[p1]
-        holder.binding.itemNombreAdmin.text = modelo.nombre
-        holder.binding.itemCorreoAdmin.text = modelo.correo
-        holder.binding.imagenU.setImageResource(modelo.imagen)
-
-        holder.binding.btnEditarAdministrador.setOnClickListener {
-            val intent = Intent(context, ActivityEditarAdministradores::class.java)
-
-            intent.putExtra("nombre", modelo.nombre)
-            intent.putExtra("correo", modelo.correo)
-
-            context.startActivity(intent)
-
-        }
-
-        holder.binding.btnEliminarAdministrador.setOnClickListener {
-            Toast.makeText(context, "Administrador eliminado", Toast.LENGTH_SHORT).show()
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderAdministradores {
+        binding = ItemAdministradoresBinding.inflate(LayoutInflater.from(context), parent, false)
+        return HolderAdministradores(binding.root)
     }
 
-    override fun getItemCount(): Int = listaAdministradores.size
+    override fun onBindViewHolder(holder: HolderAdministradores, position: Int) {
+        val modelo = listaAdministradores[position]
+
+        val nombre = modelo.nombres
+        val correo = modelo.correo
+
+        holder.item_nombre_admin.text = "${nombre}"
+        holder.item_correo_admin.text = "${correo}"
+
+    }
+
+    override fun getItemCount(): Int {
+        return listaAdministradores.size
+    }
+
+
+    inner class HolderAdministradores(itemView: View) : RecyclerView.ViewHolder(itemView){
+        var item_nombre_admin = binding.itemNombreAdmin
+        var item_correo_admin = binding.itemCorreoAdmin
+    }
+
+
 
 }

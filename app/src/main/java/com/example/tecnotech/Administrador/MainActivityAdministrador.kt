@@ -1,5 +1,6 @@
 package com.example.tecnotech.Administrador
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -15,17 +16,23 @@ import com.example.tecnotech.Administrador.Nav_Fragments_Administrador.FragmentP
 import com.example.tecnotech.Administrador.Nav_Fragments_Administrador.FragmentUsuariosA
 import com.example.tecnotech.Administrador.Nav_Fragments_Administrador.FragmentVendedoresA
 import com.example.tecnotech.R
+import com.example.tecnotech.SeleccionarTipoActivity
 import com.example.tecnotech.databinding.ActivityMainAdministradorBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivityAdministrador : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainAdministradorBinding
 
+    private var firebaseAuth: FirebaseAuth? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainAdministradorBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        firebaseAuth = FirebaseAuth.getInstance()
 
         val Toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(Toolbar)
@@ -67,6 +74,13 @@ class MainActivityAdministrador : AppCompatActivity(), NavigationView.OnNavigati
             .commit()
     }
 
+    private fun cerrarSesion(){
+        firebaseAuth!!.signOut()
+        startActivity(Intent(applicationContext, SeleccionarTipoActivity::class.java))
+        finish()
+        Toast.makeText(applicationContext, "Saliste de la aplicaicon", Toast.LENGTH_SHORT).show()
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.productos_a -> {
@@ -82,7 +96,7 @@ class MainActivityAdministrador : AppCompatActivity(), NavigationView.OnNavigati
                 replaceFragment(FragmentAdministradoresA())
             }
             R.id.cerrar_sesion_A -> {
-                Toast.makeText(applicationContext, "Has cerrado sesión", Toast.LENGTH_SHORT).show()
+                cerrarSesion()
             }
             R.id.panel_a -> {
                 replaceFragment(FragmentPanelA())

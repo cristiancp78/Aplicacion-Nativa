@@ -13,26 +13,32 @@ import com.example.tecnotech.Cliente.MainActivityCliente
 import com.example.tecnotech.Modelos.ModeloProductoC
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ActivityProductosCatCactivityBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class ProductosCatCActivity : AppCompatActivity() {
+
 
     private lateinit var binding: ActivityProductosCatCactivityBinding
     private lateinit var productosArrayList: ArrayList<ModeloProductoC>
     private lateinit var adaptadorProductoC: AdaptadorProductoC
+    private var nombreCat =""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProductosCatCactivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val categoriaRecibida = intent.getStringExtra("categoria")
+        nombreCat = intent.getStringExtra("categoria").toString()
 
         setSupportActionBar(binding.toolbar)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setTitle(R.string.app_name)
 
-        listarProductos(categoriaRecibida)
+        listarProductos(nombreCat)
 
         binding.etBuscarProducto.addTextChangedListener (object: TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -64,29 +70,30 @@ class ProductosCatCActivity : AppCompatActivity() {
     }
 
 
-    private fun listarProductos(categoriaRecibida: String?) {
+    private fun listarProductos(nombreCat: String) {
         productosArrayList = ArrayList()
 
-        val listaCompleta = arrayListOf(
-            ModeloProductoC("1", "Mouse Gamer", "80.000",  R.drawable.icoproduc, "Accesorios"),
-            ModeloProductoC("2", "Teclado RGB", "150.000",  R.drawable.icoproduc, "Accesorios"),
-            ModeloProductoC("3", "iPhone 15", "4.500.000",  R.drawable.icoproduc, "Celulares"),
-            ModeloProductoC("4", "Xiaomi RedMi", "1.200.000",  R.drawable.icoproduc, "Celulares"),
-            ModeloProductoC("5", "MacBook Pro", "8.000.000",  R.drawable.icoproduc, "Laptops"),
-            ModeloProductoC("6", "Audífonos Sony", "900.000",  R.drawable.icoproduc, "Audio"),
-            ModeloProductoC("7", "Samsung 24\"", "850.000",  R.drawable.icoproduc, "Pantallas")
+        val ref = FirebaseDatabase.getInstance().getReference("Productos")
+        ref.orderByChild("categoria").equalTo(nombreCat)
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    productosArrayList.clear()
+                    for (ds in snapshot.children){
+                        val modelo = ds.getValue(ModeloProductoC::class.java)
+                        productosArrayList.add(modelo!!)
+                    }
+
+                    adaptadorProductoC = AdaptadorProductoC(this@ProductosCatCActivity, productosArrayList)
+                    binding.productosRV.adapter = adaptadorProductoC
 
 
-        )
+                }
 
-        for (producto in listaCompleta) {
-            if (producto.categoria == categoriaRecibida) {
-                productosArrayList.add(producto)
-            }
-        }
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
 
-        adaptadorProductoC = AdaptadorProductoC(this, productosArrayList)
-        binding.productosRV.adapter = adaptadorProductoC
     }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
