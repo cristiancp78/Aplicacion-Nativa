@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.tecnotech.Adaptadores.AdaptadorCategoriaC
+import com.example.tecnotech.Adaptadores.AdaptadorProductoAleatorio
 import com.example.tecnotech.Modelos.ModeloCategoriaC
+import com.example.tecnotech.Modelos.ModeloProductoC
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.FragmentTiendaCBinding
 import com.google.firebase.database.DataSnapshot
@@ -25,6 +27,9 @@ class FragmentTiendaC : Fragment() {
     private lateinit var categoriasArrayList: ArrayList<ModeloCategoriaC>
     private lateinit var adaptadorCategoriaC: AdaptadorCategoriaC
 
+    private lateinit var productosArrayList: ArrayList<ModeloProductoC>
+    private lateinit var adaptadorProducto: AdaptadorProductoAleatorio
+
     override fun onAttach(context: Context) {
         mContext = context
         super.onAttach(context)
@@ -38,6 +43,33 @@ class FragmentTiendaC : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         listarCategorias()
+        obtenerProductosAleatorios()
+    }
+
+    private fun obtenerProductosAleatorios() {
+        productosArrayList = ArrayList()
+
+        var ref = FirebaseDatabase.getInstance().getReference("Productos")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                productosArrayList.clear()
+                for (ds in snapshot.children) {
+                    val modelo = ds.getValue(ModeloProductoC::class.java)
+                    productosArrayList.add(modelo!!)
+                }
+
+                val listaAleatoria = productosArrayList.shuffled().take(3)
+
+                adaptadorProducto = AdaptadorProductoAleatorio(mContext, listaAleatoria)
+                binding.productosAleatoriosRV.adapter = adaptadorProducto
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+
     }
 
     private fun listarCategorias() {

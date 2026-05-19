@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tecnotech.Administrador.Administrar.ActivityEditarVendedores
 import com.example.tecnotech.Modelos.ModeloVendedores
 import com.example.tecnotech.databinding.ItemVendedoresABinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.database.FirebaseDatabase
 
 class AdaptadorVendedoresA : RecyclerView.Adapter<AdaptadorVendedoresA.HolderVendedoresA> {
 
@@ -36,7 +38,39 @@ class AdaptadorVendedoresA : RecyclerView.Adapter<AdaptadorVendedoresA.HolderVen
         holder.item_nombre_tienda_vendedor_a.text = "${nombreTienda}"
         holder.item_nombre_vendedor_a.text = "${nombre}"
         holder.item_correo_vendedor_a.text = "${correo}"
+        
+        holder.btnEditarVendedor.setOnClickListener {
+            val intent = Intent(context, ActivityEditarVendedores::class.java)
+            intent.putExtra("idVendedor", modelo.uid)
+            context.startActivity(intent)
+        }
+        
+        holder.btnEliminarVendedor.setOnClickListener {
+            val alertDialog = MaterialAlertDialogBuilder(context)
+            alertDialog.setTitle("Eliminar Vendedor")
+                .setMessage("Estas seguro que deseas eliminar este vendedor?")
+                .setPositiveButton("Eliminar") { dialog, which ->
+                    eliminarVendedor(modelo)
+                }
+                .setNegativeButton("Cancelar") { dialog, which ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
 
+    }
+
+    private fun eliminarVendedor(modelo: ModeloVendedores) {
+        val idVendedor = modelo.uid
+        val ref = FirebaseDatabase.getInstance().getReference("Vendedores")
+        ref.child(idVendedor)
+            .removeValue()
+            .addOnSuccessListener {
+                Toast.makeText(context, "Vendedor eliminado", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, "No se pudo eliminar el Vendedor", Toast.LENGTH_SHORT).show()
+            }
     }
 
     override fun getItemCount(): Int {
@@ -49,6 +83,9 @@ class AdaptadorVendedoresA : RecyclerView.Adapter<AdaptadorVendedoresA.HolderVen
         var item_nombre_vendedor_a = binding.itemNombreUsuarioV
         var item_nombre_tienda_vendedor_a = binding.itemNombreTiendaV
         var item_correo_vendedor_a = binding.itemCorreoV
+        var btnEditarVendedor = binding.btnEditarVendedor
+        var btnEliminarVendedor = binding.btnEliminarVendedor
+    
     }
 
 }

@@ -61,7 +61,11 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
                 }
 
                 R.id.agregar_producto_v -> {
-                    replaceFragment(FragmentAgregarProductosV())
+                    val fragment = FragmentAgregarProductosV()
+                    val bundle = Bundle()
+                    bundle.putBoolean("Edicion", false)
+                    fragment.arguments = bundle
+                    replaceFragment(fragment)
                 }
                 R.id.mis_ordenes_v -> {
                     replaceFragment(FragmentOrdenesV())

@@ -11,6 +11,8 @@ import com.example.tecnotech.Administrador.Administrar.ActivityEditarAdministrad
 import com.example.tecnotech.Modelos.ModeloAdministradores
 import com.example.tecnotech.Modelos.ModeloUsuarios
 import com.example.tecnotech.databinding.ItemAdministradoresBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.database.FirebaseDatabase
 
 class AdaptadorAdministradores : RecyclerView.Adapter<AdaptadorAdministradores.HolderAdministradores>{
 
@@ -37,6 +39,38 @@ class AdaptadorAdministradores : RecyclerView.Adapter<AdaptadorAdministradores.H
         holder.item_nombre_admin.text = "${nombre}"
         holder.item_correo_admin.text = "${correo}"
 
+        holder.btnEditarAdmin.setOnClickListener {
+            val intent = Intent(context, ActivityEditarAdministradores::class.java)
+            intent.putExtra("idAdmin", modelo.uid)
+            context.startActivity(intent)
+        }
+
+        holder.btnEliminarAdmin.setOnClickListener {
+            val alertDialog = MaterialAlertDialogBuilder(context)
+            alertDialog.setTitle("Eliminar Administrador")
+                .setMessage("Estas seguro que deseas eliminar este administrador?")
+                .setPositiveButton("Eliminar") { dialog, which ->
+                    eliminarAdmin(modelo)
+                }
+                .setNegativeButton("Cancelar") { dialog, which ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
+
+    }
+
+    private fun eliminarAdmin(modelo: ModeloAdministradores) {
+        val idAdmin = modelo.uid
+        val ref = FirebaseDatabase.getInstance().getReference("Administradores")
+        ref.child(idAdmin)
+            .removeValue()
+            .addOnSuccessListener {
+                Toast.makeText(context, "Administrador eliminado", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, "No se pudo eliminar el administrador", Toast.LENGTH_SHORT).show()
+            }
     }
 
     override fun getItemCount(): Int {
@@ -47,8 +81,8 @@ class AdaptadorAdministradores : RecyclerView.Adapter<AdaptadorAdministradores.H
     inner class HolderAdministradores(itemView: View) : RecyclerView.ViewHolder(itemView){
         var item_nombre_admin = binding.itemNombreAdmin
         var item_correo_admin = binding.itemCorreoAdmin
+        var btnEditarAdmin = binding.btnEditarAdministrador
+        var btnEliminarAdmin = binding.btnEliminarAdministrador
     }
-
-
 
 }

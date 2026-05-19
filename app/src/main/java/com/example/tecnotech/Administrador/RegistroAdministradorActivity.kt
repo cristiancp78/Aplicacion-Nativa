@@ -43,12 +43,14 @@ class RegistroAdministradorActivity : AppCompatActivity() {
 
     private var nombre = ""
     private var correo = ""
+    private var direccion = ""
     private var password = ""
     private var confirmarPassword = ""
 
     private fun validarInformacion() {
         nombre = binding.etNombresA.text.toString().trim()
         correo = binding.etEmail.text.toString().trim()
+        direccion = binding.etDireccionA.text.toString().trim()
         password = binding.etPassword.text.toString().trim()
         confirmarPassword = binding.etConfirmarPassword.text.toString().trim()
 
@@ -61,7 +63,10 @@ class RegistroAdministradorActivity : AppCompatActivity() {
         }else if(!Patterns.EMAIL_ADDRESS.matcher(correo).matches()){
             binding.etEmail.error = "Ingrese un correo valido"
             binding.etEmail.requestFocus()
-        }else if (password.isEmpty()) {
+        }else if (direccion.isEmpty()) {
+            binding.etDireccionA.error = "Ingrese direccion"
+            binding.etDireccionA.requestFocus()
+        } else if (password.isEmpty()) {
             binding.etPassword.error = "Ingrese contraseña"
             binding.etPassword.requestFocus()
         }else if (password.length < 6) {
@@ -94,6 +99,7 @@ class RegistroAdministradorActivity : AppCompatActivity() {
         progressDialog.setMessage("Guardando informacion")
         val uidBD = firebaseAuth.uid
         val nombresBD = nombre
+        val direccionBD = direccion
         val correoBD = correo
         val tiempoBD = System.currentTimeMillis()
 
@@ -102,6 +108,7 @@ class RegistroAdministradorActivity : AppCompatActivity() {
         datosAdministrador["uid"] = "$uidBD"
         datosAdministrador["nombres"] = "$nombresBD"
         datosAdministrador["correo"] = "$correoBD"
+        datosAdministrador["direccion"] = "$direccionBD"
         datosAdministrador["tipoUsuario"] = "Administrador"
         datosAdministrador["tiempo_registro"] = "$tiempoBD"
         datosAdministrador["imagen"] = ""

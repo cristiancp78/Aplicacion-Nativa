@@ -18,6 +18,7 @@ storageV = "22.0.1"
 authGoogleV = "1.3.0"
 authGoogleServiceV="1.3.0"
 authGoogleIdV="1.1.1"
+photoViewV="2.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +38,7 @@ storage={group="com.google.firebase", name="firebase-storage", version.ref="stor
 authGoogle={group="androidx.credentials", name="credentials", version.ref="authGoogleV"}
 authGoogleService={group="androidx.credentials", name="credentials-play-services-auth", version.ref="authGoogleServiceV"}
 authGoogleId={group="com.google.android.libraries.identity.googleid", name="googleid", version.ref="authGoogleIdV"}
+photoView={group="com.github.chrisbanes", name="PhotoView", version.ref="photoViewV"}
 
 
 [plugins]

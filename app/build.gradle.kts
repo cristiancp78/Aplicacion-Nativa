@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.authGoogle)
     implementation(libs.authGoogleService)
     implementation(libs.authGoogleId)
+    implementation(libs.photoView)
     implementation(libs.glide)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.play.services.cast.framework)

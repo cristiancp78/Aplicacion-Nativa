@@ -1,14 +1,20 @@
 package com.example.tecnotech.Administrador.Administrar
 
+import android.app.ProgressDialog
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ActivityEditarUsuarioBinding
+import com.google.firebase.database.FirebaseDatabase
 
 class ActivityEditarUsuario : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditarUsuarioBinding
+    private lateinit var progressDialog: ProgressDialog
+
+    private var uid = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditarUsuarioBinding.inflate(layoutInflater)
@@ -19,19 +25,78 @@ class ActivityEditarUsuario : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setTitle(R.string.app_name)
 
+        progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Por favor espere")
+        progressDialog.setCanceledOnTouchOutside(false)
 
-        binding.etNombresC.setText(intent.getStringExtra("nombre"))
-        binding.etEmail.setText(intent.getStringExtra("correo"))
-        binding.etDireccion.setText(intent.getStringExtra("direccion"))
+
+        uid = intent.getStringExtra("idUsuario")?: ""
+
+        cargarInfo(uid)
+
+        binding.etEmail.isEnabled = false
+
 
         binding.btnEditarCliente.setOnClickListener {
-            Toast.makeText(this, "Cliente editado", Toast.LENGTH_SHORT).show()
+            actualizarCliente()
         }
 
         binding.btnRestablecerContraseA.setOnClickListener {
-            Toast.makeText(this, "Se ha enviado un correo de restablecimiento de contraseña al cliente", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun actualizarCliente() {
+
+
+        val nombres = binding.etNombresC.text.toString().trim()
+        val correo = binding.etEmail.text.toString().trim()
+        val direccion = binding.etDireccion.text.toString().trim()
+
+        if(nombres.isEmpty()){
+            binding.etNombresC.error = "El campo debe contener un nombre"
+            binding.etNombresC.requestFocus()
+        }else if(direccion.isEmpty()){
+            binding.etDireccion.error = "El campo debe contener una direccion"
+            binding.etDireccion.requestFocus()
+        }else{
+            progressDialog.setMessage("Actualizando cliente")
+            progressDialog.show()
+
+            val hashMap = HashMap<String, Any>()
+            hashMap["nombres"] = nombres
+            hashMap["direccion"] = direccion
+
+            val ref = FirebaseDatabase.getInstance().getReference("Clientes")
+            ref.child(uid)
+                .updateChildren(hashMap)
+                .addOnSuccessListener {
+                    progressDialog.dismiss()
+                    Toast.makeText(this, "Cliente actualizado", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+                .addOnFailureListener {
+                    progressDialog.dismiss()
+                    Toast.makeText(this, "No se pudo actualizar el cliente", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+    private fun cargarInfo(idUsuario: String) {
+        val ref = FirebaseDatabase.getInstance().getReference("Clientes")
+        ref.child(idUsuario).get()
+            .addOnSuccessListener {
+                val nombres = "${it.child("nombres").value}"
+                val correo = "${it.child("correo").value}"
+                val direccion = "${it.child("direccion").value}"
+
+                binding.etNombresC.setText(nombres)
+                binding.etEmail.setText(correo)
+                binding.etDireccion.setText(direccion)
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "No se pudo cargar la informacion", Toast.LENGTH_SHORT).show()
+            }
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -14,11 +14,14 @@
         android:layout_height="55dp">
 
         <TextView
+            android:id="@+id/txtAgregarProductos"
             android:text="@string/txtAgregarProductos"
             android:layout_centerInParent="true"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -47,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/RLimagen"
+        android:layout_above="@+id/btnAgregarProducto"
         android:layout_marginTop="1dp"
         android:padding="10dp">
 
@@ -126,24 +130,10 @@
                 android:text="@string/txtDescuentoP" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/TIL_PrecioDes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/descuentoSwitch">
-
-                <EditText
-                    android:id="@+id/etPrecioConDescuentoP"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/etPrecioConDescuentoP"
-                    android:inputType="numberDecimal" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TIL_NotaDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TIL_PrecioDes">
+                android:layout_below="@+id/descuentoSwitch">
 
                 <EditText
                     android:id="@+id/etNotaDescuentoP"
@@ -152,6 +142,59 @@
                     android:hint="@string/etNotaDescuentoP"
                     android:inputType="textCapSentences" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TIL_PorcentajeDesc"
+                android:layout_below="@+id/TIL_NotaDesc"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                
+                <EditText
+                    android:id="@+id/etPorcentajeDescuentoP"
+                    android:hint="@string/etPorcentajeDescuentoP"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCalcularPrecioDesc"
+                android:text="@string/btnCalcularPrecioDesc"
+                app:cornerRadius="8dp"
+                android:layout_below="@id/TIL_PorcentajeDesc"
+                android:backgroundTint="@color/celesteClaro"
+                android:layout_centerInParent="true"
+                app:icon="@drawable/ico_calcular"
+                android:layout_marginTop="10dp"
+                android:textAllCaps="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            
+            <TextView
+                android:id="@+id/precioConDescuentoPTXT"
+                android:text="@string/precioConDescuentoPTXT"
+                android:layout_width="match_parent"
+                android:layout_below="@id/btnCalcularPrecioDesc"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:padding="10dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/etPrecioConDescuentoP"
+                android:text="@string/etPrecioConDescuentoP"
+                android:layout_below="@id/precioConDescuentoPTXT"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 

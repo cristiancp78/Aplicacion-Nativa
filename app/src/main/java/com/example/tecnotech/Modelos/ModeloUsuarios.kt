@@ -1,15 +1,15 @@
 package com.example.tecnotech.Modelos
 
 class ModeloUsuarios {
-    var id: String =""
+    var uid: String =""
     var nombres: String =""
     var correo: String =""
     var direccion: String =""
     var tipoUsuario: String =""
 
     constructor()
-    constructor(id: String, nombre: String, correo: String, direccion: String, tipo: String) {
-        this.id = id
+    constructor(uid: String, nombre: String, correo: String, direccion: String, tipo: String) {
+        this.uid = uid
         this.nombres = nombre
         this.correo = correo
         this.direccion = direccion

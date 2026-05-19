@@ -73,6 +73,7 @@
     <!--Registro Administrador -->
     <string name="txtRegistroA">Registro de Administrador</string>
     <string name="etNombresA">Nombres completos</string>
+    <string name="etDireccionA">Direccion de residencia</string>
     <string name="btnRegistrarA">Registrar</string>
 
     <!--Login Vendedor -->
@@ -99,8 +100,11 @@
     <string name="Categoria">Categoria</string>
     <string name="etPrecioP">Precio</string>
     <string name="txtDescuentoP">Descuento</string>
-    <string name="etPrecioConDescuentoP">Precio con descuento apli</string>
+    <string name="etPorcentajeDescuentoP">Ingrese Porcentaje Ejem 20, 50, 60</string>
+    <string name="etPrecioConDescuentoP"></string>
     <string name="etNotaDescuentoP">Ej: 10% Descuento</string>
+    <string name="btnCalcularPrecioDesc">Calcular</string>
+    <string name="precioConDescuentoPTXT">Precio con descuento aplicado</string>
     <string name="btnAgregarProducto">Agregar producto</string>
 
     <!--Editar Producto-->
@@ -157,8 +161,12 @@
 
     <!--Detalle del producto-->
     <string name="nombrePD">Nombre del producto</string>
+    <string name="descripcionPDTXT">Informacion General:</string>
     <string name="descripcionPD">Descripcion</string>
-    <string name="precioPD">Precio</string>
+    <string name="precioPD">00</string>
+    <string name="precioDescPD">00</string>
+    <string name="notaDescPD">50% OFF</string>
+
 
     <!--Perfil Administrador-->
     <string name="tvNombrePerfil">Nombre Administrador</string>
@@ -189,13 +197,32 @@
     <string name="nombrePCar">Nombre del producto</string>
     <string name="descripcionPCar">Descripcion</string>
     <string name="precioOriginalPCar">00</string>
+    <string name="precioDescPCar">00</string>"
+    <string name="notaDescPCar">10% OFF</string>
     <string name="canrtidadPCar">1</string>
     <string name="precioFinalPCar">00</string>"
     <string name="btnAgregarCarrito">Agregar al carrito</string>
     <string name="tvTotalPagar">Total a pagar:</string>
     <string name="tvValorTotal">$ 0.00</string>
 
+    <string name="imagenContadorTv">1/5</string>
 
+
+    <!--Zoom Imagen-->
+    <string name="cerrarZoom">Cerrar</string>
+
+    <string name="NuestrosProductos">Nuestros Productos</string>
+    <string name="CategoriasTienda">Catagerorias</string>
+
+    <!--Perfil del Cliente-->
+    <string name="nombresCPerfil">Nombres Completos</string>
+    <string name="correoCPerfil">Correo Electronico</string>
+    <string name="direccionCPerfil">Direccion de envio</string>
+    <string name="cedulaCPerfil">Cedula</string>
+    <string name="fechaRegistroCPerfil">Fecha de registro</string>
+    <string name="btnGuardarInfoC">Guardar</string>
+
+    <string name="sumaProductos">Suma Productos</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="Mi_Tienda">Mi Tienda</string>
     <string name="Mis_productos">Mis Productos</string>

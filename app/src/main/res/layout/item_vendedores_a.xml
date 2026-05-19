@@ -13,6 +13,31 @@
         android:orientation="vertical"
         android:padding="7dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btnEditarVendedor"
+                android:src="@drawable/ico_edit"
+                android:background="@android:color/transparent"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_toStartOf="@id/btnEliminarVendedor"
+                android:padding="5dp"
+                android:scaleType="fitCenter"/>
+            <ImageButton
+                android:id="@+id/btnEliminarVendedor"
+                android:padding="5dp"
+                android:src="@drawable/ico_eliminar"
+                android:background="@android:color/transparent"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:scaleType="fitCenter"/>
+
+        </RelativeLayout>
+
         <com.google.android.material.imageview.ShapeableImageView
             android:src="@drawable/icofotovendedor"
             android:id="@+id/imagenU"
@@ -50,33 +75,7 @@
             android:layout_marginTop="7dp"
             android:maxLines="1"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
 
-            <ImageButton
-                android:id="@+id/btnEditarVendedor"
-                android:src="@drawable/ico_edit"
-                android:background="@android:color/transparent"
-                android:layout_marginRight="15dp"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:padding="5dp"
-                android:scaleType="fitCenter"/>
-            <ImageButton
-                android:id="@+id/btnEliminarVendedor"
-                android:layout_marginLeft="15dp"
-                android:padding="5dp"
-                android:src="@drawable/ico_eliminar"
-                android:background="@android:color/transparent"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:scaleType="fitCenter"/>
-
-        </LinearLayout>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
