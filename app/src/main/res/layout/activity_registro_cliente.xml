@@ -52,6 +52,20 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/etCedula"
+                android:hint="@string/etCedula"
+                android:drawableStart="@drawable/ico_cedula"
+                android:drawablePadding="6dp"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
                 android:id="@+id/etEmail"
                 android:hint="@string/etEmail"
                 android:drawableStart="@drawable/ico_correo"

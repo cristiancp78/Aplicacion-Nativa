@@ -60,6 +60,7 @@
 
     <!--Strings globales en los registros, login y administrador-->
     <string name="etEmail">Email</string>
+    <string name="etCedula">Cedula</string>
     <string name="etPassword">Contraseña</string>
     <string name="etConfirmarPassword">Confirmar contraseña</string>
     <string name="cuenta">¿Ya tienes una cuenta?</string>
@@ -215,11 +216,13 @@
     <string name="CategoriasTienda">Catagerorias</string>
 
     <!--Perfil del Cliente-->
+    <string name="txtMiPerfil">Mi perfil</string>
     <string name="nombresCPerfil">Nombres Completos</string>
     <string name="correoCPerfil">Correo Electronico</string>
     <string name="direccionCPerfil">Direccion de envio</string>
     <string name="cedulaCPerfil">Cedula</string>
     <string name="fechaRegistroCPerfil">Fecha de registro</string>
+    <string name="proveedorCPerfil">Proveedor</string>
     <string name="btnGuardarInfoC">Guardar</string>
 
     <string name="sumaProductos">Suma Productos</string>

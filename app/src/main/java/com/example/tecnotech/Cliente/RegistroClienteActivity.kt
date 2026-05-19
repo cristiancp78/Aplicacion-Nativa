@@ -41,12 +41,14 @@ class RegistroClienteActivity : AppCompatActivity() {
 
     private var nombre = ""
     private var correo = ""
+    private var cedula = ""
     private var direccion = ""
     private var password = ""
     private var confirmarPassword = ""
     private fun validarInformacion() {
         nombre = binding.etNombresC.text.toString().trim()
         correo = binding.etEmail.text.toString().trim()
+        cedula = binding.etCedula.text.toString().trim()
         direccion = binding.etDireccion.text.toString().trim()
         password = binding.etPassword.text.toString().trim()
         confirmarPassword = binding.etConfirmarPassword.text.toString().trim()
@@ -60,6 +62,9 @@ class RegistroClienteActivity : AppCompatActivity() {
         } else if(!Patterns.EMAIL_ADDRESS.matcher(correo).matches()){
             binding.etEmail.error = "Ingrese un correo valido"
             binding.etEmail.requestFocus()
+        }else if (cedula.isEmpty()) {
+            binding.etCedula.error = "Ingrese cedula"
+            binding.etCedula.requestFocus()
         } else if (direccion.isEmpty()) {
             binding.etDireccion.error = "Ingrese direccion"
             binding.etDireccion.requestFocus()
@@ -100,6 +105,7 @@ class RegistroClienteActivity : AppCompatActivity() {
         val uidBD = firebaseAuth.uid
         val nombresC = nombre
         val correoC = correo
+        val cedulaC = cedula
         val direccionC = direccion
         val tiempoRegistr = Constantes().obtenerTiempoD()
 
@@ -109,6 +115,8 @@ class RegistroClienteActivity : AppCompatActivity() {
         datosCliente["uid"] = "$uidBD"
         datosCliente["nombres"] = "$nombresC"
         datosCliente["correo"] = "$correoC"
+        datosCliente["cedula"] = "$cedulaC"
+        datosCliente["proveedor"] = "email"
         datosCliente["direccion"] = "$direccionC"
         datosCliente["tipoUsuario"] = "Cliente"
         datosCliente["tiempo_registro"] = "$tiempoRegistr"

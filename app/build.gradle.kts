@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.storage)
     implementation(libs.androidx.activity)
     implementation(libs.imagePicker)
+    implementation(libs.circleImage)
     implementation(libs.authGoogle)
     implementation(libs.authGoogleService)
     implementation(libs.authGoogleId)

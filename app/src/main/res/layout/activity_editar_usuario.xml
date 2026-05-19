@@ -36,13 +36,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <ImageView
-            android:src="@drawable/cliente"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgPerfilUsuario"
+            android:src="@drawable/img_perfil"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_width="80dp"
-            android:layout_height="80dp"/>
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/azul"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -54,6 +57,20 @@
                 android:drawableStart="@drawable/ico_nombres"
                 android:drawablePadding="6dp"
                 android:inputType="textPersonName|textCapWords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etCedula"
+                android:hint="@string/etCedula"
+                android:drawableStart="@drawable/ico_cedula"
+                android:drawablePadding="6dp"
+                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -73,6 +90,8 @@
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

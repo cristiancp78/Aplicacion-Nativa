@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ActivityEditarUsuarioBinding
 import com.google.firebase.database.FirebaseDatabase
@@ -51,12 +52,16 @@ class ActivityEditarUsuario : AppCompatActivity() {
 
         val nombres = binding.etNombresC.text.toString().trim()
         val correo = binding.etEmail.text.toString().trim()
+        val cedula = binding.etCedula.text.toString().trim()
         val direccion = binding.etDireccion.text.toString().trim()
 
         if(nombres.isEmpty()){
             binding.etNombresC.error = "El campo debe contener un nombre"
             binding.etNombresC.requestFocus()
-        }else if(direccion.isEmpty()){
+        }else if(cedula.isEmpty()){
+            binding.etCedula.error = "El campo debe contener una cedula"
+            binding.etCedula.requestFocus()
+        } else if(direccion.isEmpty()){
             binding.etDireccion.error = "El campo debe contener una direccion"
             binding.etDireccion.requestFocus()
         }else{
@@ -65,6 +70,7 @@ class ActivityEditarUsuario : AppCompatActivity() {
 
             val hashMap = HashMap<String, Any>()
             hashMap["nombres"] = nombres
+            hashMap["cedula"] = cedula
             hashMap["direccion"] = direccion
 
             val ref = FirebaseDatabase.getInstance().getReference("Clientes")
@@ -85,14 +91,27 @@ class ActivityEditarUsuario : AppCompatActivity() {
     private fun cargarInfo(idUsuario: String) {
         val ref = FirebaseDatabase.getInstance().getReference("Clientes")
         ref.child(idUsuario).get()
-            .addOnSuccessListener {
-                val nombres = "${it.child("nombres").value}"
-                val correo = "${it.child("correo").value}"
-                val direccion = "${it.child("direccion").value}"
+            .addOnSuccessListener { snapshot ->
+                val nombres = "${snapshot.child("nombres").value}"
+                val cedula = "${snapshot.child("cedula").value}"
+                val correo = "${snapshot.child("correo").value}"
+                val direccion = "${snapshot.child("direccion").value}"
+                val imagenUrl = "${snapshot.child("imagen").value}"
 
                 binding.etNombresC.setText(nombres)
+                binding.etCedula.setText(cedula)
                 binding.etEmail.setText(correo)
                 binding.etDireccion.setText(direccion)
+
+                try {
+                    Glide.with(this)
+                        .load(imagenUrl)
+                        .placeholder(R.drawable.img_perfil)
+                        .circleCrop()
+                        .into(binding.imgPerfilUsuario)
+                }catch (e: Exception){
+
+                }
             }
             .addOnFailureListener {
                 Toast.makeText(this, "No se pudo cargar la informacion", Toast.LENGTH_SHORT).show()

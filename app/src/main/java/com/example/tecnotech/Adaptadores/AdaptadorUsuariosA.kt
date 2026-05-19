@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.tecnotech.Administrador.Administrar.ActivityEditarUsuario
 import com.example.tecnotech.Modelos.ModeloUsuarios
+import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ItemUsuariosABinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.FirebaseDatabase
@@ -34,10 +36,20 @@ class AdaptadorUsuariosA : RecyclerView.Adapter<AdaptadorUsuariosA.HolderUsuario
 
         val nombre = modelo.nombres
         val correo = modelo.correo
+        val imagenUrl = modelo.imagen
 
 
         holder.item_nombre_usuario_a.text = "${nombre}"
         holder.item_correo_a.text = "${correo}"
+        try {
+            Glide.with(context)
+                .load(imagenUrl)
+                .placeholder(R.drawable.img_perfil)
+                .circleCrop()
+                .into(holder.imagenU)
+        }catch (e: Exception){
+            holder.imagenU.setImageResource(R.drawable.img_perfil)
+        }
 
         holder.btnEditarUsuario.setOnClickListener {
             val intent = Intent(context, ActivityEditarUsuario::class.java)
