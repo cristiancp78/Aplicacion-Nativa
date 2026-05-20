@@ -2,6 +2,7 @@ package com.example.tecnotech.Cliente.Nav_Fragments_Cliente
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,7 +12,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
+import com.example.tecnotech.ActualizarPasswordActivity
 import com.example.tecnotech.Constantes
+import com.example.tecnotech.Mapas.SeleccionarUbicacionActivity
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.FragmentMiPerfilCBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -47,24 +50,39 @@ class FragmentMiPerfilC : Fragment() {
             actualizarInfo()
         }
 
+        binding.ubicacion.setOnClickListener {
+            val intent = Intent(mContext, SeleccionarUbicacionActivity::class.java)
+            obtenerUbicacion_ARL.launch(intent)
+        }
+
+
+        binding.btnActualizarContraseA.setOnClickListener {
+            val intent = Intent(mContext, ActualizarPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+
         return binding.root
     }
 
     private var nombres = ""
     private var correo = ""
-    private var direccion = ""
     private var cedula = ""
     private fun actualizarInfo() {
         nombres = binding.nombresCPerfil.text.toString().trim()
         correo = binding.correoCPerfil.text.toString().trim()
-        direccion = binding.direccionCPerfil.text.toString().trim()
         cedula = binding.cedulaCPerfil.text.toString().trim()
+        direccion = binding.ubicacion.text.toString().trim()
 
         val hashMap : HashMap<String, Any> = HashMap()
         hashMap["nombres"] = "${nombres}"
         hashMap["correo"] = "${correo}"
-        hashMap["direccion"] = "${direccion}"
         hashMap["cedula"] = "${cedula}"
+        hashMap["direccion"] = "${direccion}"
+        hashMap["latitud"] = "${latitud}"
+        hashMap["longitud"] = "${longitud}"
+
+
 
         val ref = FirebaseDatabase.getInstance().getReference("Clientes")
         ref.child(firebaseAuth.uid!!)
@@ -102,9 +120,10 @@ class FragmentMiPerfilC : Fragment() {
 
                     binding.nombresCPerfil.setText(nombres)
                     binding.correoCPerfil.setText(correo)
-                    binding.direccionCPerfil.setText(direccion)
                     binding.cedulaCPerfil.setText(cedula)
                     binding.fechaRegistroCPerfil.text = "Se unio el $fecha"
+                    binding.ubicacion.setText(direccion)
+
 
                     try {
                         Glide.with(mContext)
@@ -118,6 +137,7 @@ class FragmentMiPerfilC : Fragment() {
                     if(proveedor == "email"){
                         binding.proveedorCPerfil.text = "La cuenta fue creada a traves de su correo"
                         binding.correoCPerfil.isEnabled = false
+                        binding.btnActualizarContraseA.visibility = View.VISIBLE
                     }else{
                         binding.proveedorCPerfil.text = "La cuenta fue creada a traves de su cuenta de Google"
                         binding.correoCPerfil.isEnabled = false
@@ -187,6 +207,24 @@ class FragmentMiPerfilC : Fragment() {
                 Toast.makeText(mContext, "No se pudo actualizar la imagen debido a ${e.message}", Toast.LENGTH_SHORT).show()
             }
 
+    }
+
+    private var latitud = 0.0
+    private var longitud = 0.0
+    private var direccion = ""
+    private val obtenerUbicacion_ARL = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { resultado ->
+        if (resultado.resultCode == Activity.RESULT_OK) {
+            val data = resultado.data
+            if(data != null){
+                latitud = data.getDoubleExtra("latitud", 0.0)
+                longitud = data.getDoubleExtra("longitud", 0.0)
+                direccion = data.getStringExtra("direccion") ?: ""
+
+                binding.ubicacion.setText(direccion)
+            }
+        } else {
+            Toast.makeText(this.context, "Accion Cancelada", Toast.LENGTH_SHORT).show()
+        }
     }
 
 

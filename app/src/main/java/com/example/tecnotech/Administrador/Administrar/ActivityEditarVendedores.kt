@@ -37,26 +37,31 @@ class ActivityEditarVendedores : AppCompatActivity() {
 
         cargarInfo(uid)
         binding.etEmail.isEnabled = false
+        binding.etDireccionV.isEnabled = false
+
 
 
         binding.btnEditarVendedor.setOnClickListener {
             actualizarVendedor()
         }
 
-        binding.btnRestablecerContraseA.setOnClickListener {
-            Toast.makeText(this, "Se ha enviado un correo de restablecimiento de contraseña al vendedor", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun actualizarVendedor() {
         val nombres = binding.etNombresV.text.toString().trim()
         val correo = binding.etEmail.text.toString().trim()
+        val cedula = binding.etCedula.text.toString().trim()
         val tienda = binding.etNombreTienda.text.toString().trim()
+        val direccion = binding.etDireccionV.text.toString().trim()
+
 
         if(nombres.isEmpty()){
             binding.etNombresV.error = "El campo debe contener un nombre"
             binding.etNombresV.requestFocus()
-        }else if(tienda.isEmpty()){
+        }else if(cedula.isEmpty()){
+            binding.etCedula.error = "El campo debe contener una cedula"
+            binding.etCedula.requestFocus()
+        } else if(tienda.isEmpty()){
             binding.etNombreTienda.error = "El campo debe contener un nombre de tienda"
             binding.etNombreTienda.requestFocus()
         }else{
@@ -65,6 +70,7 @@ class ActivityEditarVendedores : AppCompatActivity() {
 
             val hashMap = HashMap<String, Any>()
             hashMap["nombres"] = nombres
+            hashMap["cedula"] = cedula
             hashMap["tienda"] = tienda
 
             val ref = FirebaseDatabase.getInstance().getReference("Vendedores")
@@ -88,11 +94,16 @@ class ActivityEditarVendedores : AppCompatActivity() {
             .addOnSuccessListener {
                 val nombres = "${it.child("nombres").value}"
                 val correo = "${it.child("correo").value}"
+                val cedula = "${it.child("cedula").value}"
                 val tienda = "${it.child("tienda").value}"
+                val direccion = "${it.child("direccion").value}"
+
 
                 binding.etNombresV.setText(nombres)
                 binding.etEmail.setText(correo)
+                binding.etCedula.setText(cedula)
                 binding.etNombreTienda.setText(tienda)
+                binding.etDireccionV.setText(direccion)
 
             }
             .addOnFailureListener {

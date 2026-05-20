@@ -112,6 +112,9 @@ class MainActivityVendedor : AppCompatActivity(), NavigationView.OnNavigationIte
             R.id.categoriasV -> {
                 replaceFragment(FragmentCategoriasV())
             }
+            R.id.mi_tienda_v -> {
+                replaceFragment(FragmentMiTiendaV())
+            }
             R.id.cerrar_sesion_v -> {
                 cerrarSesion()
             }

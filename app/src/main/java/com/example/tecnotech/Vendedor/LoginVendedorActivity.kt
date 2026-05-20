@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.tecnotech.Cliente.MainActivityCliente
 import com.example.tecnotech.Cliente.RegistroClienteActivity
 import com.example.tecnotech.R
+import com.example.tecnotech.RecuperarPasswordActivity
 import com.example.tecnotech.databinding.ActivityLoginVendedorBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -36,6 +37,10 @@ class LoginVendedorActivity : AppCompatActivity() {
 
         binding.tvRegistrarV.setOnClickListener {
             startActivity(Intent(applicationContext, RegistroVendedorActivity::class.java))
+        }
+
+        binding.tvRecuperarPassword.setOnClickListener {
+            startActivity(Intent(applicationContext, RecuperarPasswordActivity::class.java))
         }
     }
 

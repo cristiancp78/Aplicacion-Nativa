@@ -4,14 +4,29 @@ class ModeloAdministradores {
     var uid: String =""
     var nombres: String =""
     var correo: String =""
+    var direccion: String =""
+    var cedula: String =""
+    var imagen: String =""
     var tipoUsuario: String =""
 
     constructor()
-    constructor(id: String, nombre: String, correo: String, direccion: String, tipo: String){
-        this.uid = id
-        this.nombres = nombre
+    constructor(
+        uid: String,
+        nombres: String,
+        correo: String,
+        direccion: String,
+        imagen: String,
+        cedula: String,
+        tipoUsuario: String
+    ) {
+        this.uid = uid
+        this.nombres = nombres
         this.correo = correo
-        this.tipoUsuario = tipo
+        this.direccion = direccion
+        this.imagen = imagen
+        this.cedula = cedula
+        this.tipoUsuario = tipoUsuario
     }
+
 
 }

@@ -15,6 +15,7 @@ import androidx.credentials.GetCredentialResponse
 import androidx.lifecycle.lifecycleScope
 import com.example.tecnotech.Constantes
 import com.example.tecnotech.R
+import com.example.tecnotech.RecuperarPasswordActivity
 import com.example.tecnotech.databinding.ActivityLoginClienteBinding
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
@@ -56,6 +57,10 @@ class LoginClienteActivity : AppCompatActivity() {
 
         binding.tvRegistrarC.setOnClickListener {
             startActivity(Intent(applicationContext, RegistroClienteActivity::class.java))
+        }
+
+        binding.tvRecuperarPassword.setOnClickListener {
+            startActivity(Intent(applicationContext, RecuperarPasswordActivity::class.java))
         }
     }
 

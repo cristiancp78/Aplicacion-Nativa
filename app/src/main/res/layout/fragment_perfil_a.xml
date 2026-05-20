@@ -1,94 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Administrador.Bottom_Nav_Fragments_Administrador.FragmentPerfilA">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Cliente.Nav_Fragments_Cliente.FragmentMiPerfilC">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:orientation="vertical">
 
-        <!-- Foto de Perfil -->
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivPerfil"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="20dp"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/icofotousuario"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-            app:strokeColor="@color/azul"
-            app:strokeWidth="3dp" />
-
-        <TextView
-            android:id="@+id/tvNombrePerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/tvNombrePerfil"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvRolPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tvRolPerfil"
-            android:textColor="@color/azul"
-            android:textSize="16sp" />
-
-        <!-- Sección de Información -->
-        <com.google.android.material.card.MaterialCardView
+        <RelativeLayout
+            android:id="@+id/toolbarRL"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp"
-            app:cardUseCompatPadding="true">
+            android:layout_height="55dp">
 
-            <LinearLayout
+            <TextView
+                android:text="@string/txtMiPerfil"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_alignParentBottom="true"
+                android:background="@color/plomo"
+                android:layout_height="1dp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tvCorreoPerfil"
-                    android:textSize="12sp"
-                    android:textColor="@color/gris_oscuro" />
+        </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/tvEmailPerfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/tvEmailPerfil"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Botón Cerrar Sesión -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCerrarSesion"
-            style="@style/Widget.Material3.Button.TextButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/cerrar_sesion_A"
-            android:textColor="@color/Rojo" />
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgAPerfil"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/img_perfil" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/nombresAPerfil"
+                    android:hint="@string/nombresAPerfil"
+                    android:inputType="textPersonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/correoAPerfil"
+                    android:hint="@string/correoAPerfil"
+                    android:inputType="textEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/cedulaAPerfil"
+                    android:hint="@string/cedulaAPerfil"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/ubicacion"
+                    android:hint="@string/direccionAPerfil"
+                    android:inputType="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/fechaRegistroAPerfil"
+                android:hint="@string/fechaRegistroAPerfil"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:text="@string/btnGuardarInfoA"
+                android:id="@+id/btnGuardarInfoA"
+                android:layout_gravity="center"
+                app:cornerRadius="8dp"
+                android:textAllCaps="true"
+                android:backgroundTint="@color/azul"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnActualizarContraseña"
+                android:text="@string/btnActualizarContraseña"
+                android:backgroundTint="@color/azul"
+                app:cornerRadius="8dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:textAllCaps="true"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+
+
+
+
+</ScrollView>

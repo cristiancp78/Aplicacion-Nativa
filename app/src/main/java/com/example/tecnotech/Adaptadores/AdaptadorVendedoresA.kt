@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.tecnotech.Administrador.Administrar.ActivityEditarVendedores
 import com.example.tecnotech.Modelos.ModeloVendedores
+import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ItemVendedoresABinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.FirebaseDatabase
@@ -34,10 +36,22 @@ class AdaptadorVendedoresA : RecyclerView.Adapter<AdaptadorVendedoresA.HolderVen
         val nombre = modelo.nombres
         val nombreTienda = modelo.tienda
         val correo = modelo.correo
+        val imagenUrl = modelo.imagen
+
 
         holder.item_nombre_tienda_vendedor_a.text = "${nombreTienda}"
         holder.item_nombre_vendedor_a.text = "${nombre}"
         holder.item_correo_vendedor_a.text = "${correo}"
+
+        try {
+            Glide.with(context)
+                .load(imagenUrl)
+                .placeholder(R.drawable.img_perfil)
+                .circleCrop()
+                .into(holder.imagenV)
+        }catch (e: Exception){
+            holder.imagenV.setImageResource(R.drawable.img_perfil)
+        }
         
         holder.btnEditarVendedor.setOnClickListener {
             val intent = Intent(context, ActivityEditarVendedores::class.java)

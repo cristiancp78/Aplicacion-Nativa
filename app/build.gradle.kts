@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.imagePicker)
     implementation(libs.circleImage)
     implementation(libs.authGoogle)
+    implementation(libs.maps)
+    implementation(libs.places)
     implementation(libs.authGoogleService)
     implementation(libs.authGoogleId)
     implementation(libs.photoView)

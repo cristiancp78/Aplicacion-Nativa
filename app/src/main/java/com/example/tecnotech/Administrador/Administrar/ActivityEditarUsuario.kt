@@ -36,14 +36,13 @@ class ActivityEditarUsuario : AppCompatActivity() {
         cargarInfo(uid)
 
         binding.etEmail.isEnabled = false
+        binding.etDireccion.isEnabled = false
 
 
         binding.btnEditarCliente.setOnClickListener {
             actualizarCliente()
         }
 
-        binding.btnRestablecerContraseA.setOnClickListener {
-        }
 
     }
 
@@ -61,17 +60,13 @@ class ActivityEditarUsuario : AppCompatActivity() {
         }else if(cedula.isEmpty()){
             binding.etCedula.error = "El campo debe contener una cedula"
             binding.etCedula.requestFocus()
-        } else if(direccion.isEmpty()){
-            binding.etDireccion.error = "El campo debe contener una direccion"
-            binding.etDireccion.requestFocus()
-        }else{
+        } else{
             progressDialog.setMessage("Actualizando cliente")
             progressDialog.show()
 
             val hashMap = HashMap<String, Any>()
             hashMap["nombres"] = nombres
             hashMap["cedula"] = cedula
-            hashMap["direccion"] = direccion
 
             val ref = FirebaseDatabase.getInstance().getReference("Clientes")
             ref.child(uid)

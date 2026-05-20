@@ -5,6 +5,7 @@
     <string name="close_drawer">Close drawer</string>
 
     <string name="default_web_client_id">392003132711-j7gino4og58ul8qj6a4e231kfjlqdpv7.apps.googleusercontent.com</string>
+    <string name="mi_google_maps_api_key">AIzaSyB0iNdIYg17aOcf9m4EUvgkF1QMXf4pUX0</string>
 
     <!--Strings para el tipo de usuario-->
     <string name="tipoVendedor">Vendedor</string>
@@ -80,6 +81,7 @@
     <!--Login Vendedor -->
     <string name="txtLoginV">Login de vendedor</string>"
     <string name="btnLoginV">Ingresar</string>
+    <string name="etDireccionV">Direccion</string>
     <string name="tvRegistrarV">Registrarme</string>
 
     <!--Strin global para login y registro-->
@@ -89,10 +91,23 @@
     <string name="txtLoginC">Login de cliente</string>
     <string name="btnLoginC">Ingresar</string>
     <string name="tvRegistrarC">Registrarme</string>
+    <string name="tvRecuperarPassword">Recuperar Contraseña</string>"
 
     <!--Login Administrador -->
     <string name="txtLoginA">Login de administrador</string>
     <string name="btnLoginA">Ingresar</string>
+
+    <!--Recuperar Contraseña -->
+    <string name="txtInstrucciones">Ingrese su correo electronico para enviarle las instrucciones de recuperacion</string>
+    <string name="btnEnviarInstrucciones">Enviar</string>
+
+    <!--Actualizar Contraseña-->
+    <string name="txtActualizarPass">Actualizar contraseña</string>
+    <string name="txtInstruccionesP">Su nueva contraseña debe ser diferente a la actual</string>
+    <string name="etPasswordActual">Contraseña actual</string>
+    <string name="etPasswordNueva">Nueva contraseña</string>
+    <string name="etPasswordNuevaR">Confirmar nueva contraseña</string>
+    <string name="btnActualizarPassword">Actualizar</string>
 
     <!--Productos-->
     <string name="txtAgregarProductos">Agregar productos</string>
@@ -224,6 +239,30 @@
     <string name="fechaRegistroCPerfil">Fecha de registro</string>
     <string name="proveedorCPerfil">Proveedor</string>
     <string name="btnGuardarInfoC">Guardar</string>
+    <string name="btnActualizarContraseña">Actualizar Contraseña</string>
+
+
+    <!--Perfil Vendedor-->
+    <string name="nombresVPerfil">Nombres Completos</string>
+    <string name="correoVPerfil">Correo Electronico</string>
+    <string name="direccionVPerfil">Direccion</string>
+    <string name="tiendaVPerfil">Tienda</string>
+    <string name="cedulaVPerfil">Cedula</string>
+    <string name="btnGuardarInfoV">Guardar</string>
+    <string name="fechaRegistroVPerfil">Fecha de registro</string>
+
+    <!--Perfil Administrador-->
+    <string name="nombresAPerfil">Nombres Completos</string>
+    <string name="correoAPerfil">Correo Electronico</string>
+    <string name="direccionAPerfil">Direccion</string>
+    <string name="cedulaAPerfil">Cedula</string>
+    <string name="btnGuardarInfoA">Guardar</string>
+    <string name="fechaRegistroAPerfil">Fecha de registro</string>
+
+
+    <!--Mapas-->
+    <string name="txtSeleccionarUbicacion">Seleccione una ubicacion</string>
+    <string name="btn_listo">Confirmar</string>
 
     <string name="sumaProductos">Suma Productos</string>
     <!-- TODO: Remove or change this placeholder text -->

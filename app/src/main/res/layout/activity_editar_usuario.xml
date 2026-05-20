@@ -125,18 +125,6 @@
                 android:padding="8dp"
                 android:layout_height="wrap_content"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnRestablecerContraseña"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:layout_marginStart="5dp"
-                app:cornerRadius="8dp"
-                android:backgroundTint="@color/azul"
-                android:padding="8dp"
-                android:layout_width="0dp"
-                android:text="@string/btnRestablecerContraseña"
-                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 

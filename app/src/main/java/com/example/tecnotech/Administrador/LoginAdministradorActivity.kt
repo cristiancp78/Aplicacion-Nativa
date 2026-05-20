@@ -7,6 +7,7 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tecnotech.R
+import com.example.tecnotech.RecuperarPasswordActivity
 import com.example.tecnotech.databinding.ActivityLoginAdministradorBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -30,6 +31,10 @@ class LoginAdministradorActivity : AppCompatActivity() {
         binding.btnLoginA.setOnClickListener {
             validarInformacion()
 
+        }
+
+        binding.tvRecuperarPassword.setOnClickListener {
+            startActivity(Intent(applicationContext, RecuperarPasswordActivity::class.java))
         }
 
     }

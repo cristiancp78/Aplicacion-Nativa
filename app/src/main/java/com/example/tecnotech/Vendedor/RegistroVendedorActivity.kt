@@ -1,12 +1,15 @@
 package com.example.tecnotech.Vendedor
 
+import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tecnotech.Constantes
+import com.example.tecnotech.Mapas.SeleccionarUbicacionActivity
 import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ActivityRegistroVendedorBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -37,12 +40,37 @@ class RegistroVendedorActivity : AppCompatActivity() {
             validarInformacion()
         }
 
+        binding.ubicacion.setOnClickListener {
+            val intent = Intent(this, SeleccionarUbicacionActivity::class.java)
+            obtenerUbicacion_ARL.launch(intent)
+        }
 
+
+    }
+
+
+    private var latitud = 0.0
+    private var longitud = 0.0
+    private var direccion = ""
+    private val obtenerUbicacion_ARL = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { resultado ->
+        if (resultado.resultCode == Activity.RESULT_OK) {
+            val data = resultado.data
+            if(data != null){
+                latitud = data.getDoubleExtra("latitud", 0.0)
+                longitud = data.getDoubleExtra("longitud", 0.0)
+                direccion = data.getStringExtra("direccion") ?: ""
+
+                binding.ubicacion.setText(direccion)
+            }
+        } else {
+            Toast.makeText(this, "Accion Cancelada", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private var nombre = ""
     private var correo = ""
     private var tienda = ""
+    private var cedula = ""
     private var password = ""
     private var confirmarPassword = ""
 
@@ -50,6 +78,7 @@ class RegistroVendedorActivity : AppCompatActivity() {
         nombre = binding.etNombresV.text.toString().trim()
         correo = binding.etEmail.text.toString().trim()
         tienda = binding.etNombreTienda.text.toString().trim()
+        cedula = binding.etCedula.text.toString().trim()
         password = binding.etPassword.text.toString().trim()
         confirmarPassword = binding.etConfirmarPassword.text.toString().trim()
 
@@ -62,9 +91,15 @@ class RegistroVendedorActivity : AppCompatActivity() {
         } else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
             binding.etEmail.error = "Ingrese un correo valido"
             binding.etEmail.requestFocus()
+        }else if (cedula.isEmpty()) {
+            binding.etCedula.error = "Ingrese cedula"
+            binding.etCedula.requestFocus()
         } else if (tienda.isEmpty()) {
             binding.etNombreTienda.error = "Ingrese nombre de la tienda"
             binding.etNombreTienda.requestFocus()
+        } else if (direccion.isEmpty()) {
+            binding.ubicacion.error = "Ingrese direccion"
+            binding.ubicacion.requestFocus()
         } else if (password.isEmpty()) {
             binding.etPassword.error = "Ingrese contraseña"
             binding.etPassword.requestFocus()
@@ -102,6 +137,8 @@ class RegistroVendedorActivity : AppCompatActivity() {
         val uidBD = firebaseAuth.uid
         val nombresBD = nombre
         val correoBD = correo
+        val cedulaBD = cedula
+        val direccionBD = direccion
         val tiendaBD = tienda
         val tiempoBD = Constantes().obtenerTiempoD()
 
@@ -110,7 +147,9 @@ class RegistroVendedorActivity : AppCompatActivity() {
         datosVendedor["uid"] = "$uidBD"
         datosVendedor["nombres"] = "$nombresBD"
         datosVendedor["correo"] = "$correoBD"
+        datosVendedor["cedula"] = "$cedulaBD"
         datosVendedor["tienda"] = "$tiendaBD"
+        datosVendedor["direccion"] = "$direccionBD"
         datosVendedor["tipoUsuario"] = "Vendedor"
         datosVendedor["tiempo_registro"] = "$tiempoBD"
 

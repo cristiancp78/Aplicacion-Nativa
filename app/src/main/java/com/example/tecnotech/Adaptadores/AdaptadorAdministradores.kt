@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.tecnotech.Administrador.Administrar.ActivityEditarAdministradores
 import com.example.tecnotech.Modelos.ModeloAdministradores
 import com.example.tecnotech.Modelos.ModeloUsuarios
+import com.example.tecnotech.R
 import com.example.tecnotech.databinding.ItemAdministradoresBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.FirebaseDatabase
@@ -35,9 +37,20 @@ class AdaptadorAdministradores : RecyclerView.Adapter<AdaptadorAdministradores.H
 
         val nombre = modelo.nombres
         val correo = modelo.correo
+        val imagenUrl = modelo.imagen
 
         holder.item_nombre_admin.text = "${nombre}"
         holder.item_correo_admin.text = "${correo}"
+
+        try {
+            Glide.with(context)
+                .load(imagenUrl)
+                .placeholder(R.drawable.img_perfil)
+                .circleCrop()
+                .into(holder.imagenA)
+        }catch (e: Exception){
+            holder.imagenA.setImageResource(R.drawable.img_perfil)
+        }
 
         holder.btnEditarAdmin.setOnClickListener {
             val intent = Intent(context, ActivityEditarAdministradores::class.java)
@@ -79,6 +92,7 @@ class AdaptadorAdministradores : RecyclerView.Adapter<AdaptadorAdministradores.H
 
 
     inner class HolderAdministradores(itemView: View) : RecyclerView.ViewHolder(itemView){
+        var imagenA = binding.imagenU
         var item_nombre_admin = binding.itemNombreAdmin
         var item_correo_admin = binding.itemCorreoAdmin
         var btnEditarAdmin = binding.btnEditarAdministrador
